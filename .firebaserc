@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "website-doan-hoi": {
+      "hosting": {
+        "WEBSITEDOANHOI": [
+          "website-doan-hoi"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "website-doan-hoi"
+  }
+}

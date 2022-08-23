@@ -1,0 +1,85 @@
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Roboto", sans-serif; */
+  height: 100%;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.card-img-top {
+  height: 358px;
+  object-fit: cover;
+}
+
+.search {
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+
+.search input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
+}
+
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid blue;
+}
+.search .fa-search {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  margin-right: 2px;
+}
+.card:hover {
+  background: #FFFFFF;
+  box-shadow: 0px 32px 32px rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (max-width: 600px) {
+  
+}
+
+@media only screen and (min-width: 600px) {
+  .card-img-top {
+    height: 508px;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  .card-img-top {
+    height: 328px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  
+  .card-img-top {
+    height: 288px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .col-8,
+  .col-4 {
+    flex: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-img-top {
+    height: 253px;
+  }
+}

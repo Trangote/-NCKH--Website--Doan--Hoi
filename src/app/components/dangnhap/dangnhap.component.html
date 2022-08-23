@@ -1,0 +1,81 @@
+<div class="DangNhap__container mb-4 shadow mb-5 bg-white rounded">
+  <div class="DangNhap__hinhanh"
+    style="background-image: url(https://blogger.googleusercontent.com/img/a/AVvXsEhxQH1NQQmkr-bC_wGNG7GaDHWRzJmiWGixuWvKUUkldWY8DXDAy4QTPPTU2E6R8NaqANb-gaTXTfV6qW1lAvTh9f_k-mxLH7OvjMigNXoCY1AgcShSDRrrqbMNXykga3kgeO84QQkEXnP24Y4hHuFSllqdmuLKsHp-DIDi8ycwNwyuHcKH0INTq_O3)">
+    <div class="DangNhap__logo">
+      <div class="DangNhap__logo--1">
+        <img style="width: 36.13px; height: 40px;"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEhz3vrhnTjUdUWi0S83Atc7LfL1dKhabQoIdnTwmvU2mkdHb_nH7pRViYws5hof95G_HhpZ34evL3-MHlIM14IdfkSrM3sr53I9vzSxu8j_SfZ3YrB0swBhwfcWgIk5M0ra-7UQoMUyhAdIYVm-qV3-IDe0hQRTmXgcI3YtsVlqQ7lsJcif_IAWmXMA"
+          alt="" />
+      </div>
+      <div class="DangNhap__logo--1">
+        <img style="width: 40px; height: 40px;"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEh6QNspDWFPsUgyh2962DlAgQBJEc3CzE71cbsn8eIrExs3PY4VeEUz2TDg57z1fzsywBpOFl23BCzJsrXnhTpuyZCR6ot8Xp28Vll_14FZdumSgzsXRrQafAXlVy6gcl6X5Mp3S29aLK7PAfgnsleuXCQrP8zJZ5eApe2L6-Lcu-KtUuc7ErtciaaJ"
+          alt="" />
+      </div>
+      <div class="DangNhap__logo--1">
+        <img style="width: 40px; height: 40px;"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEgL1eueg17Mu0DFf96T6XGHoDqwbU3JdR_7VkWZ_RoFPaUIadu26Gbg6A3UBd7vtdEIqL8wYVsjq0Qn7v1JKmifV8gRysMPcYCy_igI2RAC0A_3Qbf3gt3DpJAIbkGZOJ8cfPJS8TfwQCmMywiQPNlJLwPlY9YZlyOk9CpiT6HFqrXvMHTElIFc0yI4"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <form class="DangNhap__form p-3" [formGroup]="form" (ngSubmit)="onSubmit(email,password)">
+    <div class="DangNhap__icon"><i class="glyphicon glyphicon-remove"></i></div>
+    <div class="DangNhap__content">
+      <div class="DangNhap__title">ĐĂNG NHẬP</div>
+      <div class="DangNhap__heading">Email <span class="required-span">*</span></div>
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" placeholder="Nhập địa chỉ email" required id="email" formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" class="form-control input-lg" name="email"
+          #email />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Vui lòng nhập địa chỉ email trường cung cấp</div>
+        </div>
+      </div>
+      <div class="DangNhap__heading">Mật khẩu <span class="required-span">*</span></div>
+      <div class="form-group input-group">
+        <show-hide-password [btnOutline]="true">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input type="password" formControlName="password" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" placeholder="******" required
+            name="password" id="password" #password />
+        </show-hide-password>
+        <div *ngIf="submitted && f['password'].errors">
+          <div *ngIf="f['password'].errors['required']" class="text-warning-css">Vui lòng nhập mật khẩu
+          </div>
+          <div *ngIf="f['password'].errors['minlength']"  class="text-warning-css">
+            Mật khẩu phải ít nhất 6 ký tự
+          </div>
+          <div *ngIf="f['password'].errors['maxlength']" class="text-warning-css">
+            Mật khẩu không được vượt quá 40 ký tự
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center remember ml-1" style="cursor: pointer">
+        <div mat-button (click)="openDialog1()">
+          <input type="checkbox" id="ghiNhoDangNhap" />
+          Ghi nhớ đăng nhập
+        </div>
+      </div>
+      <div>
+        <button type="submit" class="DangNhap__button btn btn-success btn-block">Đăng nhập</button>
+      </div>
+      <div class="DangNhap__type">Hoặc</div>
+      <button (click)="openDialog1()" type="button" class="btn btn-outline-danger btn-block mt-2"><i
+          class="fa-brands fa-google"></i> Đăng nhập với Google</button>
+    </div>
+    <div class="text-center">
+      <div class="DangNhap__chuataikhoan">
+        Bạn chưa có tài khoản? <span (click)="taotaikhoan()"><b class="color-cursor">Tạo tài
+            khoản</b></span>
+        <div mat-button (click)="openDialog1()" class="color-cursor">
+          Quên mật khẩu</div>
+      </div>
+    </div>
+  </form>
+</div>

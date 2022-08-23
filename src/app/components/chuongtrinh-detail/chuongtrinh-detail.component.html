@@ -1,0 +1,371 @@
+<div class="container" *ngFor="let d of chuongtrinhgetduoc">
+  <div class="mt-4 p-2">
+    <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+      <div class="LichSuDangTai__title rounded">
+        <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+      </div>
+      <p class="font-weight-bold">Chỉnh sửa chương trình</p>
+      <form>
+        <div class="form-group">
+          <label for="ipAddName">1. Tên chương trình</label>
+          <input
+            class="form-control"
+            id="ipAddName"
+            type="text"
+            name="eventname"
+            [(ngModel)]="d.eventname"
+          />
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col">
+              <label for="ipAddType">2. Thể loại chương trình</label>
+              <br />
+              <i class="text-secondary"
+                >Thể loại chương trình hiện tại là: {{ d.eventtype }}</i
+              >
+              <select
+                class="form-control"
+                name="eventtype"
+                id="eventtype"
+                [(ngModel)]="d.eventtype"
+              >
+                <option value="Tình nguyện">Tình nguyện</option>
+                <option value="Học thuật">Học thuật</option>
+                <option value="Xã hội">Xã hội</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="scale">3. Quy mô chương trình</label>
+              <br />
+              <i class="text-secondary"
+                >Quy mô chương trình hiện tại là: {{ d.scale }}</i
+              >
+              <select
+                class="form-control"
+                name="scale"
+                id="eventtype"
+                [(ngModel)]="d.scale"
+              >
+                <option value="Cấp khoa">Cấp khoa</option>
+                <option value="Cấp trường">Cấp trường</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>4. Chọn quyền lợi của chương trình</label>
+          <br />
+          <i class="text-secondary"
+            >Quyền lợi chương trình hiện tại là: {{ d.quyenloiopt }}</i
+          >
+          <select
+            class="form-control"
+            id="quyenloiopt"
+            name="quyenloiopt"
+            required
+            multiple
+            size="1"
+            [(ngModel)]="d.quyenloiopt"
+          >
+            <option>Ngày công tác xã hội</option>
+            <option>Điểm rèn luyện</option>
+            <option>Giải thưởng</option>
+          </select>
+          <p class="text-secondary font-italic">
+            Lưu ý giữ nút Ctrl để chọn nhiều
+          </p>
+        </div>
+        <div class="form-group">
+          <p>5. Thời gian đăng ký</p>
+          <div class="form-row">
+            <div class="col">
+              <label for="ipAddDateFrom">5.1 Bắt đầu</label>
+              <input
+                class="form-control"
+                id="ipAddDateFrom"
+                type="date"
+                name="timestart"
+                [(ngModel)]="d.timestart"
+              />
+            </div>
+            <div class="col">
+              <label for="ipAddDateTo">5.2 Kết thúc</label>
+              <input
+                class="form-control"
+                id="ipAddDateTo"
+                type="date"
+                name="timeend"
+                [(ngModel)]="d.timeend"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="formFileMultiple" class="form-label"
+            >6. Banner chương trình</label
+          >
+          <p class="text-secondary font-italic">
+            Lưu ý size ảnh cố định: 1920x350
+          </p>
+          <input
+            class="form-control"
+            type="text"
+            id="formFileMultiple"
+            name="banner"
+            multiple
+            placeholder="Ảnh banner"
+            [(ngModel)]="d.banner"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ipavatar" class="form-label"
+            >7. Ảnh đại diện chương trình</label
+          >
+          <p class="text-secondary font-italic">
+            Lưu ý size ảnh cố định: 600x600
+          </p>
+          <input
+            class="form-control"
+            type="text"
+            id="ipavatar"
+            name="banner"
+            multiple
+            placeholder="Ảnh đại diện"
+            [(ngModel)]="d.imgavatar"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formFileMultiple2" class="form-label"
+            >8. Thêm ảnh khác của chương trình</label
+          >
+          <p class="text-secondary font-italic">
+            Lưu ý size ảnh cố định: 1920x600
+          </p>
+          <p class="text-secondary font-italic">
+            Ảnh 1: Giới thiệu chương trình; Ảnh 2: Giải thưởng; Ảnh 3: Lộ trình
+          </p>
+          <div class="form-row row--add-col">
+            <div class="col col-img-add">
+              <input
+                class="form-control"
+                type="text"
+                id="formFileMultiple2"
+                name="img1gioithieu"
+                multiple
+                placeholder="Ảnh giới thiệu"
+                [(ngModel)]="d.img1gioithieu"
+              />
+            </div>
+            <div class="col col-img-add">
+              <input
+                class="form-control"
+                type="text"
+                id="formFileMultiple2"
+                name="img2benefit"
+                multiple
+                placeholder="Ảnh giải thưởng"
+                [(ngModel)]="d.img2benefit"
+              />
+            </div>
+            <div class="col col-img-add">
+              <input
+                class="form-control"
+                type="text"
+                id="formFileMultiple2"
+                name="img3timeline"
+                multiple
+                placeholder="Ảnh lộ trình"
+                [(ngModel)]="d.img3timeline"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1"
+            >9. Giới thiệu ngắn chương trình</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            name="shortdescription"
+            rows="7"
+            [(ngModel)]="d.shortdescription"
+          >
+Nhập giới thiệu ngắn về chương trình </textarea
+          >
+        </div>
+        <div class="form-group">
+          <label for="fee">10. Phí tham gia</label>
+          <input class="form-control" id="fee" name="fee" [(ngModel)]="d.fee" />
+        </div>
+        <div class="form-group">
+          <p>11. Kiến thức, kỹ năng mang lại</p>
+          <div class="form-row">
+            <div class="form-check form-check-inline col-6">
+              <label for="skill1">11.1. Cơ hội kết nối doanh nghiệp</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="Yes"
+                name="skill1"
+                [(ngModel)]="d.sconnect"
+                class="form-check-input"
+              />Có
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="No"
+                name="skill1"
+                [(ngModel)]="d.sconnect"
+                class="form-check-input"
+              />Không
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-check form-check-inline col-6">
+              <label for="skill2">11.2. Tư duy sáng tạo</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="Yes"
+                name="skill2"
+                [(ngModel)]="d.screative"
+                class="form-check-input"
+              />Có
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="No"
+                name="skill2"
+                [(ngModel)]="d.screative"
+                class="form-check-input"
+              />Không
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-check form-check-inline col-6">
+              <label for="skill3">11.3. Tập huấn</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="Yes"
+                name="skill3"
+                [(ngModel)]="d.straining"
+                class="form-check-input"
+              />Có
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="No"
+                name="skill3"
+                [(ngModel)]="d.straining"
+                class="form-check-input"
+              />Không
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-check form-check-inline col-6">
+              <label for="skill4">11.4. Kiến thức</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="Yes"
+                name="skill4"
+                [(ngModel)]="d.sknow"
+                class="form-check-input"
+                class="form-check-input"
+              />Có
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="No"
+                name="skill4"
+                [(ngModel)]="d.sknow"
+                class="form-check-input"
+              />Không
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-check form-check-inline col-6">
+              <label for="skill5">11.5. Kỹ năng mềm</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="Yes"
+                name="skill5"
+                [(ngModel)]="d.sskill"
+                class="form-check-input"
+                class="form-check-input"
+              />Có
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                value="No"
+                name="skill5"
+                [(ngModel)]="d.sskill"
+                class="form-check-input"
+              />Không
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea2"
+            >12. Mô tả chương trình</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea2"
+            rows="7"
+            name="description"
+            [(ngModel)]="d.description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea3"
+            >13. Quyền lợi, cơ cấu giải thưởng</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea2"
+            rows="7"
+            name="benefit"
+            [(ngModel)]="d.benefit"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea3">14. Lộ trình</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea2"
+            rows="7"
+            name="timeline"
+            [(ngModel)]="d.timeline"
+          ></textarea>
+        </div>
+        <div class="form--button text-center">
+          <button class="btn btn-primary" (click)="updateChuongtrinh()">
+            Lưu chương trình
+          </button>
+          <button
+            class="btn btn-secondary"
+            style="margin-left: 100px"
+            (click)="openDialog1()"
+          >
+            Xóa chương trình
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

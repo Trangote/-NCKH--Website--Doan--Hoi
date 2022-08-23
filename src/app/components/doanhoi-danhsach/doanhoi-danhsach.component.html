@@ -1,0 +1,125 @@
+<div class="DoanHoi__body--container">
+  <div class="TrangChu__header--banner">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEgfzu8ryOW_ZKmrMGuMebhv228ltNK1ywZtbAhWi7jhooMVkqxt1lzN5N_itOIMFSDThEGK97UbZqDfEm5HdQJTtjNe502mUCI2s7jDT276DhYDfdj2xCv-r1t0d9FSU82dI5MnxH-8aTTGQowkw31vho6r3gh8sD83ByHT233xB7PQCAbT3Q3vT46e"
+      alt=""
+    />
+  </div>
+  <div class="container">
+    <h1>ĐOÀN THANH NIÊN, HỘI SINH VIÊN VÀ CÁC CÂU LẠC BỘ, ĐỘI NHÓM</h1>
+    <mat-tab-group
+      mat-align-tabs="center"
+      animationDuration="0ms"
+      style="background-color: white"
+    >
+      <mat-tab label="Đoàn thanh niên">
+        <table class="table mt-4">
+          <thead
+            class="thead-css"
+            style="background-color: #00568f; color: white"
+          >
+            <tr class="tieude-css">
+              <td>STT</td>
+              <td class="text-center">Tên</td>
+              <td>Chi tiết</td>
+            </tr>
+          </thead>
+          <tr
+            *ngFor="let d of doan; let i = index"
+            [class.active]="i == currentIndex"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ d }}</td>
+            <td mat-button (click)="openDialog()" class="blue-color">
+              <a>Xem</a>
+            </td>
+          </tr>
+        </table>
+        <p class="blockquote text-center mt-3 font-italic">
+          *Và còn nhiều tổ chức khác nữa...
+        </p>
+      </mat-tab>
+      <mat-tab label="Hội sinh viên">
+        <table class="table mt-4">
+          <thead
+            class="thead-css"
+            style="background-color: #00568f; color: white"
+          >
+            <tr class="tieude-css">
+              <td>STT</td>
+              <td class="text-center">Tên</td>
+              <td>Chi tiết</td>
+            </tr>
+          </thead>
+          <tr
+            *ngFor="let d of hoi; let i = index"
+            [class.active]="i == currentIndex"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ d }}</td>
+            <td mat-button (click)="openDialog()" class="blue-color">
+              <a>Xem</a>
+            </td>
+          </tr>
+        </table>
+        <p class="blockquote text-center mt-3 font-italic">
+          *Và còn nhiều tổ chức khác nữa...
+        </p>
+      </mat-tab>
+      <mat-tab label="Câu lạc bộ">
+        <table class="table mt-4">
+          <thead
+            class="thead-css"
+            style="background-color: #00568f; color: white"
+          >
+            <tr class="tieude-css">
+              <td>STT</td>
+              <td class="text-center">Tên</td>
+              <td>Chi tiết</td>
+            </tr>
+          </thead>
+          <tr
+            *ngFor="let d of clb; let i = index"
+            [class.active]="i == currentIndex"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ d }}</td>
+            <td mat-button (click)="openDialog()" class="blue-color">
+              <a>Xem</a>
+            </td>
+          </tr>
+        </table>
+        <p class="blockquote text-center mt-3 font-italic">
+          *Và còn nhiều tổ chức khác nữa...
+        </p>
+      </mat-tab>
+      <mat-tab label="Đội Nhóm">
+        <table class="table mt-4">
+          <thead
+            class="thead-css"
+            style="background-color: #00568f; color: white"
+          >
+            <tr class="tieude-css">
+              <td>STT</td>
+              <td class="text-center">Tên</td>
+              <td>Chi tiết</td>
+            </tr>
+          </thead>
+          <tr
+            *ngFor="let d of doinhom; let i = index"
+            [class.active]="i == currentIndex"
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ d }}</td>
+            <td mat-button (click)="openDialog()" class="blue-color">
+              <a>Xem</a>
+            </td>
+          </tr>
+        </table>
+        <p class="blockquote text-center mt-3 font-italic">
+          *Và còn nhiều tổ chức khác nữa...
+        </p>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

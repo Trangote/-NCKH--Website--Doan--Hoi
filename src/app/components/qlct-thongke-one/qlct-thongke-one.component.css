@@ -1,0 +1,58 @@
+.table-container {
+  overflow-x: auto;
+}
+.ThongKe__row--logo {
+  text-align: center;
+}
+.ThongKe--org-logo {
+  width: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.event-name{
+  color: #00568f;
+}
+.ThongKe--button {
+  text-align: center;
+}
+.ThongKe--excel {
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.LichSuDangTai__card {
+  border: 1px solid #a7a7a7;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+.ThongKe--table {
+  font-size: 14px;
+}
+@media only screen and (min-width: 768px){
+  .ThongKe--org-logo {
+    width: 90px;
+  }
+}
+@media only screen and (min-width: 992px){
+  .ThongKe--org-logo {
+    width: 115px;
+  }
+  .ThongKe--excel {
+    font-size: 25px;
+  }
+}

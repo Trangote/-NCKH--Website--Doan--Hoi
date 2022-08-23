@@ -1,0 +1,24 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Doanhoi List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let d of doanhoi; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveDoanhoi(d, i)">
+        {{ d.username }}
+      </li>
+    </ul>
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDoanhoi()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentDoanhoi">
+      <app-doanhoi-details (refreshList)="refreshList()" [doanhoi]="currentDoanhoi"></app-doanhoi-details>
+    </div>
+
+    <div *ngIf="!currentDoanhoi">
+      <br />
+      <p>Please click on a Doanhoi...</p>
+    </div>
+  </div>
+</div>

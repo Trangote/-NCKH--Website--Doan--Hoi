@@ -1,0 +1,733 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-3 col-md-4 p-2">
+      <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+        <div class="LichSuDangTai__avatar">
+          <div>
+            <img
+              style="width: 80px; height: 80px; border-radius: 50%"
+              src="{{ btcimages }}"
+              alt=""
+            />
+          </div>
+          <div>
+            <div>
+              <b>{{ btcname }}</b>
+            </div>
+            <div
+              class="LichSuDangTai__user--icon"
+              mat-button
+              (click)="openDialog()"
+            >
+              <div><i class="fa-solid fa-pen-to-square"></i></div>
+              <div>&nbsp; Chỉnh sửa hồ sơ</div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div (click)="themchuongtrinh()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-circle-plus"></i></div>
+            <div>&nbsp; Thêm chương trình</div>
+          </div>
+        </div>
+        <div (click)="lichsudangtai()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>&nbsp; Lịch sử đăng tải</div>
+          </div>
+        </div>
+        <div mat-button (click)="openDialog()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-chart-pie"></i></div>
+            <div>&nbsp; Thống kê</div>
+          </div>
+        </div>
+        <div (click)="dangxuat()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-right-from-bracket"></i></div>
+            <div>&nbsp; Đăng xuất</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 p-2">
+      <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+        <div class="LichSuDangTai__title rounded">
+          <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+        </div>
+        <p class="font-weight-bold">Thêm chương trình</p>
+        <p class="font-italic mb-3">
+          Vui lòng đọc hướng dẫn
+          <a
+            href="https://drive.google.com/file/d/1kppr0EWSwQVmZwe-ESqR4xHmfa_b0nrh/view?usp=sharing"
+            target="_blank"
+          >
+            tại đây</a
+          >
+          để dán link ảnh vào form.
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="eventname"
+              >1. Tên chương trình <span class="required-span">*</span></label
+            >
+            <div>
+              <input
+                type="text"
+                placeholder="Tên chương trình"
+                required
+                id="eventname"
+                class="form-control"
+                formControlName="eventname"
+                [ngClass]="{ 'is-invalid': submitted && f['eventname'].errors }"
+                name="eventname"
+              />
+              <div
+                *ngIf="submitted && f['eventname'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['eventname'].errors['required']">
+                  Vui lòng nhập tên chương trình
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col">
+                <label
+                  >2. Chọn loại chương trình
+                  <span class="required-span">*</span></label
+                >
+                <select
+                  class="form-control"
+                  id="eventtype"
+                  name="eventtype"
+                  formControlName="eventtype"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['eventtype'].errors
+                  }"
+                  required
+                >
+                  <option>Học thuật</option>
+                  <option>Xã hội</option>
+                  <option>Tình nguyện</option>
+                </select>
+                <div
+                  *ngIf="submitted && f['eventtype'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['eventtype'].errors['required']">
+                    Vui lòng chọn loại chương trình
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label
+                  >3. Chọn quy mô chương trình
+                  <span class="required-span">*</span></label
+                >
+                <select
+                  class="form-control"
+                  id="scale"
+                  name="scale"
+                  formControlName="scale"
+                  [ngClass]="{ 'is-invalid': submitted && f['scale'].errors }"
+                  required
+                >
+                  <option>Cấp khoa</option>
+                  <option>Cấp trường</option>
+                </select>
+                <div
+                  *ngIf="submitted && f['scale'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['scale'].errors['required']">
+                    Vui lòng chọn quy mô chương trình
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label
+                  >4. Chọn quyền lợi của chương trình
+                  <span class="required-span">*</span></label
+                >
+                <select
+                  class="form-control"
+                  id="quyenloiopt"
+                  name="quyenloiopt"
+                  formControlName="quyenloiopt"
+                  [ngClass]="{ 'is-invalid': submitted && f['scale'].errors }"
+                  required
+                  multiple
+                  size="1"
+                >
+                  <option>Ngày công tác xã hội</option>
+                  <option>Điểm rèn luyện</option>
+                  <option>Giải thưởng</option>
+                </select>
+                <p class="font-italic">Lưu ý giữ nút Ctrl để chọn nhiều</p>
+                <div
+                  *ngIf="submitted && f['quyenloiopt'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['quyenloiopt'].errors['required']">
+                    Vui lòng chọn quyền lợi chương trình
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>5. Thời gian đăng ký</p>
+            <div class="form-row">
+              <div class="col">
+                <label class="form-label" for="timestart"
+                  >5.1. Bắt đầu <span class="required-span">*</span></label
+                >
+                <div>
+                  <input
+                    type="date"
+                    required
+                    id="timestart"
+                    class="form-control"
+                    formControlName="timestart"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['timestart'].errors
+                    }"
+                    name="timestart"
+                  />
+                  <div
+                    *ngIf="submitted && f['timestart'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['timestart'].errors['required']">
+                      Vui lòng chọn thời gian bắt đầu chương trình
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label" for="timeend"
+                  >5.2. Kết thúc <span class="required-span">*</span></label
+                >
+                <div>
+                  <input
+                    type="date"
+                    required
+                    id="timeend"
+                    class="form-control"
+                    formControlName="timeend"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['timeend'].errors
+                    }"
+                    name="timeend"
+                  />
+                  <div
+                    *ngIf="submitted && f['timeend'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['timeend'].errors['required']">
+                      Vui lòng chọn thời gian kết thúc chương trình
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="banner" class="form-label"
+              >6. Thêm banner chương trình
+              <span class="required-span">*</span></label
+            >
+            <p><i>Lưu ý size ảnh cố định: 1920x350</i></p>
+            <div>
+              <input
+                type="text"
+                placeholder="Ảnh banner chương trình"
+                required
+                id="banner"
+                class="form-control"
+                formControlName="banner"
+                [ngClass]="{ 'is-invalid': submitted && f['banner'].errors }"
+                name="banner"
+              />
+              <div
+                *ngIf="submitted && f['banner'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['banner'].errors['required']">
+                  Vui lòng chèn link ảnh banner chương trình
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="imgavatar" class="form-label"
+              >7. Thêm ảnh đại diện chương trình
+              <span class="required-span">*</span></label
+            >
+            <p><i>Lưu ý size ảnh cố định: 600x600</i></p>
+            <div>
+              <input
+                type="text"
+                placeholder="Ảnh đại diện chương trình"
+                required
+                id="imgavatar"
+                class="form-control"
+                formControlName="imgavatar"
+                [ngClass]="{ 'is-invalid': submitted && f['imgavatar'].errors }"
+                name="imgavatar"
+              />
+              <div
+                *ngIf="submitted && f['imgavatar'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['imgavatar'].errors['required']">
+                  Vui lòng chèn link ảnh đại diện chương trình
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label"
+              >8. Thêm ảnh khác của chương trình
+              <span class="required-span">*</span></label
+            >
+            <p class="font-italic">Lưu ý size ảnh cố định: 1920x600</p>
+            <i
+              >Ảnh 1: Giới thiệu chương trình; Ảnh 2: Giải thưởng; Ảnh 3: Lộ
+              trình
+            </i>
+            <div class="form-row">
+              <div class="col">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Ảnh 1: Ảnh giới thiệu"
+                    required
+                    id="img1gioithieu"
+                    class="form-control"
+                    formControlName="img1gioithieu"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['img1gioithieu'].errors
+                    }"
+                    name="img1gioithieu"
+                  />
+                  <div
+                    *ngIf="submitted && f['img1gioithieu'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['img1gioithieu'].errors['required']">
+                      Vui lòng chèn link ảnh giới thiệu
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Ảnh 2: Ảnh giải thưởng"
+                    required
+                    id="img2benefit"
+                    class="form-control"
+                    formControlName="img2benefit"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['img2benefit'].errors
+                    }"
+                    name="img2benefit"
+                  />
+                  <div
+                    *ngIf="submitted && f['img2benefit'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['img2benefit'].errors['required']">
+                      Vui lòng chèn link ảnh giải thưởng
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Ảnh 3: Ảnh lộ trình"
+                    required
+                    id="img3timeline"
+                    class="form-control"
+                    formControlName="img3timeline"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['img3timeline'].errors
+                    }"
+                    name="img3timeline"
+                  />
+                  <div
+                    *ngIf="submitted && f['img3timeline'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['img3timeline'].errors['required']">
+                      Vui lòng chèn link ảnh lộ trình
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="shortdescription"
+              >9. Giới thiệu ngắn chương trình
+              <span class="required-span">*</span></label
+            >
+            <div>
+              <textarea
+                class="form-control"
+                formControlName="shortdescription"
+                class="form-control"
+                rows="3"
+                [ngClass]="{
+                  'is-invalid': submitted && f['shortdescription'].errors
+                }"
+                required
+                id="shortdescription"
+                name="shortdescription"
+              >
+              </textarea>
+              <div
+                *ngIf="submitted && f['shortdescription'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['shortdescription'].errors['required']">
+                  Vui lòng nhập giới thiệu ngắn chương trình
+                </div>
+                <div *ngIf="f['shortdescription'].errors['minlength']"></div>
+                Vui lòng nhập ít nhất 6 ký tự
+                <div *ngIf="f['shortdescription'].errors['maxlength']">
+                  Vui lòng không nhập quá 500 ký tự
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fee"
+              >10. Phí tham gia <span class="required-span">*</span></label
+            >
+            <p class="font-italic">
+              Lưu ý chỉ nhập số, nếu không có phí tham gia thì điền số '0'
+            </p>
+            <div>
+              <input
+                class="form-control"
+                formControlName="fee"
+                class="form-control"
+                rows="3"
+                [ngClass]="{ 'is-invalid': submitted && f['fee'].errors }"
+                required
+                id="fee"
+                name="fee"
+              />
+              <div
+                *ngIf="submitted && f['fee'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['fee'].errors['required']">
+                  Vui lòng nhập phí tham gia
+                </div>
+                <div *ngIf="f['fee'].errors['minlength']"></div>
+                Vui lòng nhập ít nhất 1 ký tự
+                <div *ngIf="f['fee'].errors['maxlength']">
+                  Vui lòng không nhập quá 9 ký tự
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>
+              11. Kiến thức, kỹ năng mang lại
+              <span class="required-span">*</span>
+            </p>
+            <div class="form-row">
+              <div class="form-check form-check-inline col-6">
+                <label for="sconnect">11.1. Cơ hội kết nối doanh nghiệp </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="Yes"
+                  id="sconnect"
+                  name="sconnect"
+                  formControlName="sconnect"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['fee'].errors }"
+                  required
+                />Có
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="No"
+                  id="sconnect"
+                  name="sconnect"
+                  formControlName="sconnect"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['fee'].errors }"
+                  required
+                />Không
+              </div>
+              <div
+                *ngIf="submitted && f['sconnect'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['sconnect'].errors['required']">
+                  Vui lòng chọn ô này
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check form-check-inline col-6">
+                <label for="screative">11.2. Tư duy sáng tạo </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="Yes"
+                  id="screative"
+                  name="screative"
+                  formControlName="screative"
+                  class="form-check-input"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['screative'].errors
+                  }"
+                  required
+                />Có
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="No"
+                  id="screative"
+                  name="screative"
+                  formControlName="screative"
+                  class="form-check-input"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['screative'].errors
+                  }"
+                  required
+                />Không
+              </div>
+              <div
+                *ngIf="submitted && f['screative'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['screative'].errors['required']">
+                  Vui lòng chọn ô này
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check form-check-inline col-6">
+                <label for="straining">11.3. Tập huấn </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="Yes"
+                  id="straining"
+                  name="straining"
+                  formControlName="straining"
+                  class="form-check-input"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['straining'].errors
+                  }"
+                  required
+                />Có
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="No"
+                  id="straining"
+                  name="straining"
+                  formControlName="straining"
+                  class="form-check-input"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['straining'].errors
+                  }"
+                  required
+                />Không
+              </div>
+              <div
+                *ngIf="submitted && f['straining'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['straining'].errors['required']">
+                  Vui lòng chọn ô này
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check form-check-inline col-6">
+                <label for="sknow">11.4. Kiến thức </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="Yes"
+                  id="sknow"
+                  name="sknow"
+                  formControlName="sknow"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['sknow'].errors }"
+                  required
+                />Có
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="No"
+                  id="sknow"
+                  name="sknow"
+                  formControlName="sknow"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['sknow'].errors }"
+                  required
+                />Không
+              </div>
+              <div
+                *ngIf="submitted && f['sknow'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['sknow'].errors['required']">
+                  Vui lòng chọn ô này
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-check form-check-inline col-6">
+                <label for="sskill">11.5. Kỹ năng mềm </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="Yes"
+                  id="sskill"
+                  name="sskill"
+                  formControlName="sskill"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['sskill'].errors }"
+                  required
+                />Có
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  value="No"
+                  id="sskill"
+                  name="sskill"
+                  formControlName="sskill"
+                  class="form-check-input"
+                  [ngClass]="{ 'is-invalid': submitted && f['sskill'].errors }"
+                  required
+                />Không
+              </div>
+            </div>
+            <div
+              *ngIf="submitted && f['sskill'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['sskill'].errors['required']">
+                Vui lòng chọn ô này
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea2"
+              >12. Mô tả chương trình
+              <span class="required-span">*</span></label
+            >
+            <textarea
+              class="form-control"
+              formControlName="description"
+              class="form-control"
+              rows="6"
+              [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"
+              required
+              id="description"
+              name="description"
+            >
+            </textarea>
+            <div
+              *ngIf="submitted && f['description'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['description'].errors['required']">
+                Vui lòng nhập mô tả chương trình
+              </div>
+              <div *ngIf="f['description'].errors['minlength']"></div>
+              Vui lòng nhập ít nhất 6 ký tự
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="benefit"
+              >13. Quyền lợi, cơ cấu giải thưởng
+              <span class="required-span">*</span></label
+            >
+            <textarea
+              class="form-control"
+              formControlName="benefit"
+              class="form-control"
+              rows="2"
+              [ngClass]="{ 'is-invalid': submitted && f['benefit'].errors }"
+              required
+              id="benefit"
+              name="benefit"
+            >
+            </textarea>
+            <div
+              *ngIf="submitted && f['benefit'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['benefit'].errors['required']">
+                Vui lòng nhập quyền lợi chương trình
+              </div>
+              <div *ngIf="f['benefit'].errors['minlength']"></div>
+              Vui lòng nhập ít nhất 6 ký tự
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="timeline"
+              >14. Lộ trình <span class="required-span">*</span></label
+            >
+            <textarea
+              class="form-control"
+              formControlName="timeline"
+              class="form-control"
+              rows="4"
+              [ngClass]="{ 'is-invalid': submitted && f['timeline'].errors }"
+              required
+              id="timeline"
+              name="timeline"
+            >
+            </textarea>
+            <div
+              *ngIf="submitted && f['timeline'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['timeline'].errors['required']">
+                Vui lòng nhập lộ trình chương trình
+              </div>
+              <div *ngIf="f['timeline'].errors['minlength']"></div>
+              Vui lòng nhập ít nhất 6 ký tự
+            </div>
+          </div>
+          <div class="form--button mb-3">
+            <button class="btn btn-primary" type="submit">
+              Thêm chương trình
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

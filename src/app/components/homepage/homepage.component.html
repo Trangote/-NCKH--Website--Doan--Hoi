@@ -1,0 +1,176 @@
+<div
+  class="TrangChu__body--container"
+  *ngIf="!currentChuongtrinh && !currentChuongtrinhcheck"
+>
+  <div class="TrangChu__header--banner">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEgfzu8ryOW_ZKmrMGuMebhv228ltNK1ywZtbAhWi7jhooMVkqxt1lzN5N_itOIMFSDThEGK97UbZqDfEm5HdQJTtjNe502mUCI2s7jDT276DhYDfdj2xCv-r1t0d9FSU82dI5MnxH-8aTTGQowkw31vho6r3gh8sD83ByHT233xB7PQCAbT3Q3vT46e"
+      alt=""
+    />
+  </div>
+
+  <div class="container">
+    <div class="TrangChu__body">
+      <h2>CHƯƠNG TRÌNH NỔI BẬT</h2>
+      <img
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEigZ_kERyl-ryyEN6sRbtsbSpfQsteiG3ipldFynF6VJBf7zdpKObma42XsB_hXGh17MWXxN1dy-0rNFqI-HpOV0Rugj--oJ5s31IMxrqscs5BHGshvoWKnjhlH754u5K3tqQUClmRmoLjj10DvR7XJOHXnu2cedXZqHwlmSAnN_UqDpPOdDtunpEW5=s0"
+        alt=""
+      />
+      <section class="mt-3">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-md-4 mb-4"
+              *ngFor="let d of ctmoi2 | slice: 0:3; let i = index"
+              [class.active]="i == currentIndex"
+            >
+              <div class="card">
+                <img
+                  src="{{ d.imgavatar }}"
+                  alt=""
+                  class="card-img-top card-popular card-img-top-lg"
+                />
+                <div class="card-body text-center">
+                  <p class="card-title card-title-css text-uppercase">
+                    {{
+                      d.eventname!.length > 21
+                        ? (d.eventname | slice: 0:22) + "..."
+                        : d.eventname
+                    }}
+                  </p>
+                  <p class="green-text">{{ d.soluongdk }} lượt đăng ký</p>
+                  <p>Hạn cuối đăng ký: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+                  <p class="red-text">
+                    <countdown
+                      [config]="{
+                        timezone: '-2400',
+                        leftTime: minus(d.timeend!),
+                        format:
+                          minus(d.timeend!) < 86400
+                            ? '00:HH:mm:ss'
+                            : 'dd:HH:mm:ss'
+                      }"
+                    >
+                    </countdown>
+                  </p>
+
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/user1', d.key]"
+                    class="btn btn-outline-secondary btn-sm"
+                    >Đăng ký tham gia</a
+                  >
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/homepage', d.key]"
+                    class="btn btn-danger btnDetail btn-sm"
+                    >Chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="TrangChu__body">
+      <h2>CHƯƠNG TRÌNH MỚI NHẤT</h2>
+      <img
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEjp_GkbX3s3QJFEShU52Ek2ftv-_Nu8Ks8WyL68CGmXmSiuxJbTlql_X5Ygh2Bdf2eDJQ07l1RAUWuFbBE8tesMiIBN90GIysat2_GTuezUNYGka44aQW7d2r85IB8-428yWEVfdljPfo-Cdvj96S0cFuOLHoRrEyWc8kXF6UTO4XCNk8IGYszbr4Yc=s0"
+        alt=""
+      />
+      <section class="mt-3">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-md-6 col-lg-3 col-xl-3 mb-4"
+              *ngFor="let d of chuongtrinh2 | slice: -4; let i = index"
+              [class.active]="i == currentIndex"
+            >
+              <div class="card">
+                <img
+                  src="{{ d.imgavatar }}"
+                  alt=""
+                  class="card-img-top card-new"
+                />
+                <div class="card-body text-center">
+                  <p class="card-title card-title-css text-uppercase">
+                    {{
+                      d.eventname!.length > 20
+                        ? (d.eventname | slice: 0:21) + "..."
+                        : d.eventname
+                    }}
+                  </p>
+                  <p>Hạn cuối đăng ký: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+                  <p class="red-text">
+                    <countdown
+                      [config]="{
+                        timezone: '-2400',
+                        leftTime: minus(d.timeend!),
+                        format:
+                          minus(d.timeend!) < 86400
+                            ? '00:HH:mm:ss'
+                            : 'dd:HH:mm:ss'
+                      }"
+                    >
+                    </countdown>
+                  </p>
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/user1', d.key]"
+                    class="btn btn-outline-secondary btn-sm"
+                    >Đăng ký tham gia</a
+                  >
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/homepage', d.key]"
+                    class="btn btn-danger btnDetail btn-sm"
+                    >Chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="Homepage-intro">
+    <div class="row text-center text-white">
+      <h3 class="mb-5 TrangChu__intro">
+        Chào mừng bạn đến với trang tin điện tử của Đoàn thanh niên - Hội sinh
+        viên trường Đại học Kinh tế - Luật. Trang tin ra đời với sứ mệnh cung
+        cấp và tạo môi trường tham gia các chương trình hoạt động một cách dễ
+        dàng và thuận lợi nhất cho các bạn sinh viên!
+      </h3>
+      <div class="col TrangChu__statistic">
+        <i class="fa-solid fa-user fa-3x"></i>
+        <p
+          [countUp]="count1"
+          [duration]="duration1"
+          class="mt-1 count-no font-weight-bold"
+        ></p>
+        <p class="count-txt">SINH VIÊN</p>
+      </div>
+      <div class="col TrangChu__statistic">
+        <i class="fa-solid fa-sitemap fa-3x"></i>
+        <p
+          [countUp]="count2"
+          [duration]="duration2"
+          class="mt-1 count-no font-weight-bold"
+        ></p>
+        <p class="count-txt">CHI ĐOÀN/CHI HỘI</p>
+      </div>
+      <div class="col TrangChu__statistic">
+        <i class="fa-solid fa-user-group fa-3x"></i>
+        <p
+          [countUp]="count3"
+          [duration]="duration3"
+          class="mt-1 count-no font-weight-bold"
+        ></p>
+        <p class="count-txt">CLB/ĐỘI NHÓM</p>
+      </div>
+    </div>
+  </div>
+</div>

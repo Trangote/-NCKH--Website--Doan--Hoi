@@ -1,0 +1,164 @@
+/* .TrangChu__body--container {
+  font-family: "Open Sans", sans-serif;
+} */
+.btn{
+  margin-bottom: 3px;
+}
+.TrangChu__header--banner img {
+  width: 100%;
+}
+.Homepage-intro {
+  position: relative;
+  background-color: #00568f;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.count-txt {
+  font-size: 12px;
+}
+
+.count-no {
+  font-size: 24px;
+}
+
+.TrangChu__body {
+  padding: 24px 0px;
+}
+
+.TrangChu__body h2 {
+  text-align: center;
+  /* font-family: "Open Sans", sans-serif; */
+}
+
+.TrangChu__body>img {
+  width: 100%;
+}
+
+.TrangChu__intro {
+  font-size: 20px;
+}
+
+.green-text{
+  color: #1DB93F; 
+  font-weight: bold;
+}
+
+.red-text{
+  color: red; 
+  font-weight: bold;
+}
+
+.btn-outline-secondary {
+  margin-right: 10px;
+  border-color: #00568f !important;
+  color: #00568f !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #00568f !important;
+  color: white !important;
+}
+
+.card-title-css {
+  /* font-family: "Open Sans", sans-serif; */
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .TrangChu__body--container {
+    margin-top: 0px;
+  }
+
+  .TrangChu__body h2 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .TrangChu__body--container {
+    margin-top: 0px;
+  }
+
+  .TrangChu__body h2 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .TrangChu__body--container {
+    margin-top: 0px;
+  }
+
+  .TrangChu__body h2 {
+    font-size: 28px;
+  }
+
+  .card-popular {
+    height: 198px !important;
+  }
+
+  .card-new {
+    height: 313px !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .TrangChu__body--container {
+    margin-top: 0px;
+  }
+
+  .TrangChu__body h2 {
+    font-size: 30px;
+  }
+
+  .card-popular {
+    height: 278px !important;
+  }
+
+  .count-txt {
+    font-size: 16px;
+  }
+
+  .count-no {
+    font-size: 30px;
+  }
+
+  .card-new {
+    height: 200.5px !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .TrangChu__body--container {
+    margin-top: 0px;
+  }
+
+  .TrangChu__body h2 {
+    font-size: 36px;
+  }
+
+  .TrangChu__statistic p {
+    font-size: 20px;
+  }
+
+  .card-popular {
+    height: 338px !important;
+  }
+
+  .count-no {
+    font-size: 34px;
+  }
+
+  .card-new {
+    height: 245.5px !important;
+  }
+
+  .card-img-top-lg {
+    height: 348px !important;
+  }
+}

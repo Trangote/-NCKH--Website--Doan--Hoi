@@ -1,0 +1,45 @@
+.container {
+  padding: auto 20% !important;
+}
+
+.con {
+  margin-right: auto;
+  margin-left: auto;
+}
+.DangKy__input--text {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.Nhom__form--select {
+  margin-bottom: 8px;
+  color: black;
+}
+.DangKy__heading {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.DangKy__button {
+  background-color: #00568f;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 16px;
+}
+.required-span {
+  color: red;
+}
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}

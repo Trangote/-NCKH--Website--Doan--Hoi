@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/core-js@^2.4.1/client/shim.js"></script>
+    <script src="https://unpkg.com/zone.js@0.8.10/dist/zone.js"></script>
+    <script src="https://unpkg.com/zone.js@0.8.10/dist/long-stack-trace-zone.js"></script>
+    <script src="https://unpkg.com/reflect-metadata@^0.1.8/Reflect.js"></script>
+    <script src="https://unpkg.com/systemjs@^0.19.40/dist/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      System.import("app").catch(console.error.bind(console));
+    </script>
+  </head>
+
+  <body>
+    <div class="header-page">
+      <nav
+        class="navbar navbar-expand navbar-light bg-light navbar-inverse fixed-top"
+      >
+        <div class="nav-brand">
+          <a class="navbar-brand" routerLink="homepage"
+            ><img
+              style="width: 40px; height: 40px"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEh6QNspDWFPsUgyh2962DlAgQBJEc3CzE71cbsn8eIrExs3PY4VeEUz2TDg57z1fzsywBpOFl23BCzJsrXnhTpuyZCR6ot8Xp28Vll_14FZdumSgzsXRrQafAXlVy6gcl6X5Mp3S29aLK7PAfgnsleuXCQrP8zJZ5eApe2L6-Lcu-KtUuc7ErtciaaJ"
+            />&#160; CHƯƠNG TRÌNH UEL</a
+          >
+        </div>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="homepage" routerLinkActive="active"
+              >Trang chủ</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="chuongtrinhSV"
+              routerLinkActive="active"
+              >Chương trình</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="danhsachdoanhoi"
+              routerLinkActive="active"
+              >Giới thiệu</a
+            >
+          </li>
+        </ul>
+        <div *ngIf="useruser" (click)="phanquyenUser()">
+          <!-- <input type="text" [(ngModel)]="useruser.email" disabled /> -->
+          {{ useruser.email }}
+        </div>
+
+        <img
+          style="width: 40px; border-radius: 300px; cursor: pointer"
+          (click)="phanquyenUser()"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEiYpvQomp-sCEgn3HXnVVeiQdRCMcoIpQ5Ol8OIO92J1oMWQnk7yIndSTbGRRxipjpTMWP1oynZzq-88d6YQUrKcewLnVtjDs0AiZ2Dbz2wX4XaAbMbvjB6kAp5y76I5N19J8fXRT1OVYfX-jr8Otjnej2qKh4PaMHVuicc8-Y_pFkZ8jxdfAGigLIM=s0"
+          alt=""
+        />
+      </nav>
+      <div style="margin-top: 56px">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <footer class="w-100 py-4 flex-shrink-0">
+      <div class="container py-4">
+        <div class="row gy-4 gx-5">
+          <div class="col-lg-4 col-md-6">
+            <h3 class="text-white">Tổng quan</h3>
+            <p class="small text-muted">
+              Website hỗ trợ quản lý các chương trình của Đoàn - Hội, Câu lạc
+              bộ, Đội nhóm thuộc Trường Đại học Kinh tế - Luật, Đại học Quốc gia
+              Thành phố Hồ Chí Minh.
+            </p>
+            <p class="small text-muted">
+              Nhóm NCKH thuộc Trường Đại học Kinh tế - Luật (Số 669 Đường Quốc
+              lộ 1, Khu phố 3, Phường Linh Xuân, TP. Thủ Đức, TP. Hồ Chí
+              Minh).<br />
+              Email: chuongtrinhuel@gmail.com
+              <br />
+              Điện thoại: 0359925931
+            </p>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h3 class="text-white mb-3">Liên kết nhanh</h3>
+            <ul class="list-unstyled text-muted">
+              <li class="small"><a href="#">Trang chủ</a></li>
+              <li class="small">
+                <a routerLink="chuongtrinhSV">Chương trình</a>
+              </li>
+              <li class="small">
+                <a routerLink="danhsachdoanhoi">Giới thiệu</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h3 class="text-white mb-3">Một số trang khác</h3>
+
+            <ul class="list-unstyled text-muted">
+              <li class="small">
+                <a href="https://www.uel.edu.vn/" target="_blank"
+                  >UEL Homepage</a
+                >
+              </li>
+              <li class="small">
+                <a href="https://youth.uel.edu.vn/" target="_blank"
+                  >Youth UEL</a
+                >
+              </li>
+              <li class="small">
+                <a href="https://myuel.uel.edu.vn/" target="_blank">MyUEL</a>
+              </li>
+              <li class="small">
+                <a href="https://elearning.uel.edu.vn/" target="_blank"
+                  >UEL E-learning</a
+                >
+              </li>
+              <li class="small">
+                <a href="https://lms.uel.edu.vn/" target="_blank"
+                  >UEL E-learning (LMS)</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <ul class="list-unstyled social">
+              <li class="d-inline mr-4">
+                <img
+                  style="width: 72.8px; height: 80px"
+                  src="https://blogger.googleusercontent.com/img/a/AVvXsEhz3vrhnTjUdUWi0S83Atc7LfL1dKhabQoIdnTwmvU2mkdHb_nH7pRViYws5hof95G_HhpZ34evL3-MHlIM14IdfkSrM3sr53I9vzSxu8j_SfZ3YrB0swBhwfcWgIk5M0ra-7UQoMUyhAdIYVm-qV3-IDe0hQRTmXgcI3YtsVlqQ7lsJcif_IAWmXMA"
+                />
+              </li>
+              <li class="d-inline mr-4">
+                <img
+                  style="width: 80px; height: 80px"
+                  src="https://blogger.googleusercontent.com/img/a/AVvXsEh6QNspDWFPsUgyh2962DlAgQBJEc3CzE71cbsn8eIrExs3PY4VeEUz2TDg57z1fzsywBpOFl23BCzJsrXnhTpuyZCR6ot8Xp28Vll_14FZdumSgzsXRrQafAXlVy6gcl6X5Mp3S29aLK7PAfgnsleuXCQrP8zJZ5eApe2L6-Lcu-KtUuc7ErtciaaJ"
+                />
+              </li>
+              <li class="d-inline">
+                <img
+                  style="width: 80px; height: 80px"
+                  src="https://blogger.googleusercontent.com/img/a/AVvXsEgL1eueg17Mu0DFf96T6XGHoDqwbU3JdR_7VkWZ_RoFPaUIadu26Gbg6A3UBd7vtdEIqL8wYVsjq0Qn7v1JKmifV8gRysMPcYCy_igI2RAC0A_3Qbf3gt3DpJAIbkGZOJ8cfPJS8TfwQCmMywiQPNlJLwPlY9YZlyOk9CpiT6HFqrXvMHTElIFc0yI4"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 pt-4 border-top">
+        <div class="col-md-6 col-lg-8 text-center" style="margin: auto">
+          <p class="small text-muted mb-0 copyright">
+            &copy; Bản quyền.
+            <a class="text-primary" href="#"
+              >Đề tài nghiên cứu khoa học được thực hiện bởi nhóm sinh viên đến
+              từ lớp K19406 và K19401</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

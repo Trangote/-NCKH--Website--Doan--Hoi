@@ -1,0 +1,73 @@
+<div class="container p-5" *ngFor="let d of chuongtrinhgetduoc">
+  <div class="mt-4 mb-5">
+    <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+      <div class="LichSuDangTai__title rounded">
+        <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+      </div>
+      <div class="LichSuDangTai__card container p-3">
+        <p class="font-weight-bold">Thông tin chương trình</p>
+        <div class="text-center">
+          <img class="ThongKe--org-logo" src="{{ d.btcimages }}" />
+          <h3 class="font-weight-bold">{{ d.btcname }}</h3>
+          <h2 class="font-weight-bold event-name">{{ d.eventname }}</h2>
+          <p class="bg-light">Số lượng tham gia: {{ soluongdk }}</p>
+        </div>
+        <div id="chart1" style="margin-bottom: 50px">
+          <apx-chart
+            [series]="chartOptions1.series"
+            [chart]="chartOptions1.chart"
+            [plotOptions]="chartOptions1.plotOptions"
+            [yaxis]="chartOptions1.yaxis"
+            [xaxis]="chartOptions1.xaxis"
+            [legend]="chartOptions1.legend"
+            [colors]="chartOptions1.colors"
+            [grid]="chartOptions1.grid"
+          ></apx-chart>
+        </div>
+        <div
+          id="chart2"
+          style="display: block; margin: auto; margin-bottom: 50px"
+        >
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [labels]="chartOptions.labels"
+            [responsive]="chartOptions.responsive"
+          ></apx-chart>
+        </div>
+
+        <div class="ThongKe--button">
+          <button class="ThongKe--excel" (click)="exportexcel()">
+            <i class="fas fa-download"></i>Excel
+          </button>
+          <div class="table-container">
+            <table
+              class="ThongKe--table table table-striped mt-4"
+              id="excel-table"
+            >
+              <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>MSSV</th>
+                <th>Địa chỉ email</th>
+                <th>SĐT</th>
+                <th>Khoa</th>
+              </tr>
+              <tr
+                *ngFor="let d2 of enrollmentlist; let i = index"
+                [class.active]="i == currentIndex"
+              >
+                <td scope="row">{{ i + 1 }}</td>
+                <td>{{ d2.fullname }}</td>
+                <td>{{ d2.studentcode }}</td>
+                <td>{{ d2.email }}</td>
+                <td>{{ d2.phonenumber }}</td>
+                <td>{{ d2.faculty }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="LichSuDangTai__container--2 container" *ngFor="let d of chuongtrinhgetduoc">
+  <div class="LichSuDangTai__title rounded">
+    <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+  </div>
+  <div class="LichSuDangTai__card container p-5">
+    <p class="font-weight-bold">Thông tin chương trình</p>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ipAddName">Tên chương trình</label>
+          <input class="form-control" id="ipAddName" name="eventname" type="text" [(ngModel)]="d.eventname" disabled />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="ipAddType">Thể loại chương trình</label>
+          <input class="form-control" id="ipAddType" type="text" name="eventtype" [(ngModel)]="d.eventtype" disabled />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="ipAddDateFrom">Thời gian bắt đầu đăng ký</label>
+          <input class="form-control" id="ipAddDateFrom" name="timestart" type="date" [(ngModel)]="d.timestart"
+            disabled />
+        </div>
+        <div class="form-group col-md-3">
+          <label>Thời gian kết thúc đăng ký</label>
+          <input class="form-control" id="ipAddDateTo" name="timeend" type="date" [(ngModel)]="d.timeend" disabled />
+        </div>
+        <div class="form-group col-md-6">
+          <label>Quy mô chương trình</label>
+          <input class="form-control" name="scale" id="ipScale" name="scale" type="text" [(ngModel)]="d.scale"
+            disabled />
+        </div>
+      </div>
+    </form>
+    <hr>
+    <div>
+      <p class="font-weight-bold">Thêm thông báo</p>
+    </div>
+    <app-thongbao-add [thongbaochuongtrinh]="d"></app-thongbao-add>
+    <div>
+      <p class="font-weight-bold">Lịch sử thông báo</p>
+    </div>
+    <div class="card notification-card notification-invitation">
+      <div class="card-body">
+        <table class="text-left tb-table">
+          <tr *ngFor="let d2 of tb2; let i = index" [class.active]="i == currentIndex">
+            <td style="width:70%">
+              <div class="card-title font-weight-bold">Thông báo {{i+1}}</div>
+              <p class="font-style-italic text-secondary">{{d2.ngayTaoThongBao | date:'HH:mm dd/MM/yyyy'}}</p>
+              <p [innerHTML]=" d2.thongbao"></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

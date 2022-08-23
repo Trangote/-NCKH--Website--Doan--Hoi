@@ -1,0 +1,150 @@
+<div class="container" *ngFor="let d of chuongtrinhgetduoc">
+  <div class="mt-4 p-2">
+    <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+      <div class="LichSuDangTai__title rounded">
+        <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+      </div>
+      <div class="LichSuDangTai__card container">
+        <p class="font-weight-bold">Chỉnh sửa chương trình</p>
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="ipAddName">Tên chương trình</label>
+              <input
+                class="form-control"
+                id="ipAddName"
+                type="text"
+                name="eventname"
+                [(ngModel)]="d.eventname"
+                disabled
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="ipAddType">Thể loại chương trình</label>
+              <input
+                class="form-control"
+                id="ipAddType"
+                type="text"
+                name="eventtype"
+                [(ngModel)]="d.eventtype"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="ipAddDateFrom">Thời gian bắt đầu đăng ký</label>
+              <input
+                class="form-control"
+                id="ipAddDateFrom"
+                name="timestart"
+                type="date"
+                [(ngModel)]="d.timestart"
+                disabled
+              />
+            </div>
+            <div class="form-group col-md-3">
+              <label>Thời gian kết thúc đăng ký</label>
+              <input
+                class="form-control"
+                id="ipAddDateTo"
+                name="timeend"
+                type="date"
+                [(ngModel)]="d.timeend"
+                disabled
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Quy mô chương trình</label>
+              <input
+                class="form-control"
+                id="ipScale"
+                name="scale"
+                type="text"
+                [(ngModel)]="d.scale"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="form--button text-center">
+            <button class="btn btn-primary btn-connect">
+              <a href="webcam">Kết nối Webcam</a>
+            </button>
+          </div>
+        </form>
+        <div class="mt-4">
+          <div class="search">
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tìm kiếm sinh viên"
+              name="search"
+              autocomplete="off"
+              [(ngModel)]="searchText"
+            />
+          </div>
+        </div>
+        <div class="table-container mt-4">
+          <table class="table">
+            <thead class="thead-css">
+              <tr>
+                <th>STT</th>
+                <th scope="col">Thời gian</th>
+                <th scope="col">MSSV</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Email</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Điểm danh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let d2 of enrollmentlist | filter: searchText!;
+                  let i = index
+                "
+                [class.active]="i == currentIndex"
+              >
+                <td>{{ i + 1 }}</td>
+                <td scope="row">
+                  {{ d2.checkintime | date: "HH:mm dd/MM/YYYY" }}
+                </td>
+                <td>{{ d2.studentcode }}</td>
+                <td>{{ d2.fullname }}</td>
+                <td>{{ d2.email }}</td>
+                <td
+                  [ngClass]="{
+                    'text-success': d2.checkinstatus,
+                    'text-muted': !d2.checkinstatus
+                  }"
+                >
+                  {{ d2.checkinstatus ? "Đã điểm danh" : "Chưa điểm danh" }}
+                </td>
+                <td>
+                  <p
+                    id="checkin"
+                    class="btn btn-outline-success btn-sm"
+                    (click)="setActiveDoanhoi(d2, i, d)"
+                  >
+                    Điểm danh
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <hr />
+          <div>
+            <div *ngIf="currentSV">
+              <app-checkin-detail
+                (refreshList)="refreshList1()"
+                [sinhvien]="currentSV"
+                [chuongtrinh]="d"
+              ></app-checkin-detail>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,268 @@
+.fa-heart {
+  color: red;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.CTChiTiet--content--banner {
+  height: 510px;
+  object-fit: cover;
+}
+.btcname {
+  line-height: 38px;
+}
+.CTChiTiet--bold {
+  background-color: #38b0ff;
+  border: none !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 180px;
+  height: 60px;
+  font-size: 25px;
+  margin: 10px;
+  border-radius: 29px;
+}
+
+/* CSS id */
+.CTChiTiet--banner {
+  width: 100%;
+}
+
+
+.CTChiTiet--icon {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.CTChiTiet--size24 {
+  font-size: 24px;
+}
+
+.CTChiTiet--text--blue {
+  color: #38b0ff;
+}
+
+
+.CTChiTiet--box {
+  width: 75px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  margin: auto 0.5%;
+}
+
+.CTChiTiet--size40 {
+  font-size: 24px;
+}
+
+.CTChiTiet--content--banner {
+  width: 100%;
+}
+.CTChiTiet--container--clock h2 {
+  margin-top: 8px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.CTChiTiet--container--clock p {
+  font-size: 14px;
+}
+
+.card {
+  text-align: center;
+}
+
+/* MH max-width 450 */
+
+.CTChiTiet--icon--highlight {
+  width: 40px;
+}
+
+
+.CTChiTiet--label--highlight {
+  font-size: 12px;
+}
+
+.CTChiTiet--img--profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.CTChiTiet--content--banner {
+  height: 102px;
+  object-fit: cover;
+}
+
+.CTChiTiet--banner {
+  height: 75.47px;
+  object-fit: cover;
+}
+
+.btntab {
+  margin: auto 8px;
+
+}
+
+.card-body {
+  color: #000 !important;
+}
+
+
+
+.CTChiTiet--bold {
+  width: 170px;
+  height: 60px;
+  font-size: 24px;
+  margin: 16px;
+}
+
+.CTChiTiet--icon--highlight {
+  width: 50px;
+}
+
+.CTChiTiet--col--fee {
+  font-size: 20px;
+}
+
+.CTChiTiet--size40 {
+  font-size: 40px;
+  margin-right: 2%;
+}
+
+.CTChiTiet--box {
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin: auto 2%;
+  border-radius: 8px;
+  background-color: #ea0707;
+  color: #fff;
+}
+
+.CTChiTiet--container--clock h2 {
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}
+
+@media only screen and (max-width: 600px) {
+  .display-4 {
+    font-size: 28px !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .CTChiTiet--content--banner {
+    height: 188px;
+  }
+
+  .CTChiTiet--banner {
+    height: 109.38px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .CTChiTiet--content--banner {
+    height: 239px;
+  }
+
+  .CTChiTiet--banner {
+    height: 140px;
+  }
+  
+
+  .CTChiTiet--bold {
+    width: 210px;
+    height: 80px;
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  .CTChiTiet--icon--highlight {
+    width: 60px;
+  }
+
+  .CTChiTiet--img--profile {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.3em;
+  }
+
+}
+
+@media only screen and (min-width: 992px) {
+  .CTChiTiet--content--banner {
+    height: 309px;
+  }
+
+  .CTChiTiet--banner {
+    height: 180.83px;
+  }
+
+  .CTChiTiet--bold {
+    width: 255px;
+    height: 90px;
+    border-radius: 80px;
+    font-size: 36px;
+    margin: 24px;
+  }
+
+
+  .CTChiTiet--img--profile {
+    width: 74px;
+    height: 74px;
+    margin-right: 0.5em;
+  }
+
+  .CTChiTiet--box {
+    color: white;
+    width: 134px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #ea0707;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .CTChiTiet--content--banner {
+    height: 319px;
+  }
+
+  .CTChiTiet--banner {
+    height: 186.67px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .CTChiTiet--content--banner {
+    height: 373px;
+  }
+
+  .CTChiTiet--banner {
+    height: 218.75px;
+  }
+
+  .CTChiTiet--label--highlight {
+    font-size: 20px;
+  }
+
+  .CTChiTiet--col--fee {
+    font-size: 24px;
+  }
+
+}

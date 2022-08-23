@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="left"></div>
+  <div class="right">
+    <div class="ThongKe__box--top">
+      <h4>QUẢN LÝ CHƯƠNG TRÌNH</h4>
+    </div>
+    <div class="ThongKe__box--bottom" *ngIf="currentCert">
+      <h4>CẤP GIẤY CHỨNG NHẬN</h4>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="ipAddName">Tên chương trình<span>*</span></label>
+            <input class="form-control" id="ipAddName" type="text" name="eventname" [(ngModel)]="currentCert.eventname"
+              disabled />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ipAddType">Thể loại chương trình<span>*</span></label>
+            <input class="form-control" id="ipAddType" type="text" name="eventtype" [(ngModel)]="currentCert.eventtype"
+              disabled />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="ipAddDateFrom">Thời gian đăng ký<span>*</span></label>
+            <input class="form-control" id="ipAddDateFrom" name="timestart" type="text"
+              [(ngModel)]="currentCert.timestart" disabled /> -->
+            <input class="form-control" id="ipAddDateTo" name="timeend" type="text" [(ngModel)]="currentCert.timeend"
+              disabled />
+          </div>
+          <div class="form-group col-md-4">
+            <label>Quy mô chương trình</label>
+            <input class="form-control" id="ipScale" name="scale" type="text" [(ngModel)]="currentCert.scale"
+              disabled />
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="formFileMultiple" class="form-label">Thêm giấy chứng nhận</label>
+          <input class="form-control" id="ipFile" name="file" type="text" [(ngModel)]="currentCert.cert" />
+        </div>
+        <div class="form--button">
+          <button class="ThemCT--btn" (click)="updateChuongtrinh()">Lưu</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="!currentCert">
+      <br />
+      <p>Cannot access this Doanhoi...</p>
+    </div>
+  </div>
+
+</div>

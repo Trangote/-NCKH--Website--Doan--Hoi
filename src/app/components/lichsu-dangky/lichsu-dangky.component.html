@@ -1,0 +1,169 @@
+<div class="TaiKhoan__container container mb-5">
+  <mat-tab-group
+    mat-align-tabs="center"
+    animationDuration="0ms"
+    style="background-color: white"
+  >
+    <mat-tab label="Tài khoản">
+      <div class="container mt-4">
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Họ và tên</label>
+          <input
+            type="text"
+            class="form-input col-9"
+            [(ngModel)]="fullname"
+            disabled
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Email trường</label>
+          <input
+            type="text"
+            class="form-input col-9"
+            [(ngModel)]="email"
+            disabled
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">MSSV</label>
+          <input
+            type="text"
+            class="form-input col-9"
+            [(ngModel)]="studentcode"
+            disabled
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Khoa</label>
+          <input
+            type="text"
+            class="form-input col-9"
+            [(ngModel)]="faculty"
+            disabled
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Số điện thoại</label>
+          <input
+            type="text"
+            class="form-input col-9"
+            [(ngModel)]="currentUser.phonenumber"
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Ngày sinh</label>
+          <input
+            type="date"
+            class="form-input col-9"
+            [(ngModel)]="currentUser.dateofbirth"
+          />
+        </div>
+        <div class="form-row mb-3">
+          <label for="" class="form-label col-3">Giới tính</label>
+          <div class="form-input">
+            <input type="radio" value="Nam" [(ngModel)]="currentUser.gender" />
+            Nam
+            <input type="radio" value="Nữ" [(ngModel)]="currentUser.gender" />
+            Nữ
+          </div>
+        </div>
+        <div class="TaiKhoan__form--row LichSuDangKy__form--row">
+          <button class="btn btn-primary" type="button" (click)="updateUser()">
+            Cập nhật
+          </button>
+          <button
+            type="button"
+            class="LichSuDangKy__form--row1 btn btn-secondary"
+            (click)="dangxuat()"
+          >
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Lịch sử đăng ký">
+      <div class="LichSuDangKy__body--info">
+        <div class="LichSuDangKy__info--left col-lg-8 pt-5">
+          <div
+            class="LichSuDangKy__left--item"
+            *ngFor="let d of ctmoi3; let i = index"
+            [class.active]="i == currentIndex"
+          >
+            <div class="LichSuDangKy__left--item1">
+              <p>{{ i + 1 }}. {{ d.ngayDangKy | date: "HH:mm dd/MM/yyyy" }}</p>
+            </div>
+            <div>
+              <p>Chương trình: {{ d.eventname }}</p>
+            </div>
+            <div class="LichSuDangKy__left--item1">
+              <p>Thời gian kết thúc: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+              <a
+                [title]="d.eventname + ' details'"
+                [routerLink]="['/chuongtrinhSV', d.key]"
+                style="cursor: pointer"
+                >Xem chi tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="LichSuDangKy__info--right col-lg-4">
+          <app-ct-goiy></app-ct-goiy>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Chương trình quan tâm">
+      <section id="gallery">
+        <div class="container mt-4" style="min-height: 170px">
+          <div class="row">
+            <div
+              class="col-md-6 col-lg-4 col-xl-3 mb-4"
+              *ngFor="let d of ctmoi4; let i = index"
+              [class.active]="i == currentIndex"
+            >
+              <div class="card">
+                <img src="{{ d.imgavatar }}" alt="" class="card-img-top" />
+                <div class="card-body text-center">
+                  <p
+                    class="text-uppercase card-title card-title-css font-weight-bold"
+                  >
+                    {{
+                      d.eventname!.length > 15
+                        ? (d.eventname | slice: 0:14) + "..."
+                        : d.eventname
+                    }}
+                  </p>
+                  <p>Hạn cuối đăng ký: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+                  <p class="text-red font-weight-bold">
+                    <countdown
+                      [config]="{
+                        timezone: '-2400',
+                        leftTime: minus(d.timeend!),
+                        format:
+                          minus(d.timeend!) < 86400
+                            ? '00:HH:mm:ss'
+                            : 'dd:HH:mm:ss'
+                      }"
+                    >
+                    </countdown>
+                  </p>
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/user1', d.key]"
+                    class="btn btn-outline-secondary btn-sm"
+                    >Đăng ký tham gia</a
+                  >
+                  <a
+                    [title]="d.eventname"
+                    [routerLink]="['/chuongtrinhSV', d.key]"
+                    class="btn btn-danger btnDetail btn-sm"
+                    >Chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</div>

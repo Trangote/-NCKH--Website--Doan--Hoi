@@ -1,0 +1,35 @@
+<div id="latest">
+  <div class="font-weight-bold CTChiTiet--text--title">
+    Chương trình đề xuất
+    <div class="CTChiTiet--decoration"></div>
+  </div>
+  <section id="gallery">
+    <div class="container ChitietCT-container">
+      <div class="row ChitietCT-row">
+        <div class="col-6 col-md-3 col-lg-6 mb-2 col-12 ctgoiy--font-size"
+          *ngFor="let d of chuongtrinh | slice: -4; let i = index" [class.active]="i == currentIndex">
+          <a [routerLink]="['/goiy', d.key]" class="goi-y">
+            <div class="card">
+              <img src="{{d.imgavatar}}" alt="" class="card-img-top Ctgoiy-card-img-top">
+              <div class="card-body text-center">
+                <p class="text-uppercase ctgoiy-card-p ctgoiy-card-title card-title card-title-css font-weight-bold">
+                  {{
+                  d.eventname!.length > 12
+                    ? (d.eventname | slice: 0:10) + "..."
+                    : d.eventname
+                }}
+                </p>
+                <p class="ctgoiy-card-p">Hạn cuối đăng ký: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+                <p class="ctgoiy-card-p font-weight-bold red countdown-card">
+                  <countdown
+                    [config]="{timezone: '-2400', leftTime: minus(d.timeend!), format:(minus(d.timeend!)<86400)?'00:HH:mm:ss':'dd:HH:mm:ss'}">
+                  </countdown>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

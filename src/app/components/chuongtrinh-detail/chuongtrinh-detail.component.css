@@ -1,0 +1,38 @@
+.btn-primary {
+  background-color: #00568f !important;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.row--add-col {
+  flex-direction: column;
+}
+.col-img-add {
+  margin-bottom: 5px;
+}
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}
+
+
+@media only screen and (min-width: 992px){
+  .col-img-add {
+    margin-bottom: auto;
+  }
+  .row--add-col {
+    flex-direction: row;
+  }
+}

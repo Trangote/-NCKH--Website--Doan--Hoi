@@ -1,0 +1,48 @@
+
+.btn-primary {
+  background-color: #00568f !important;
+}
+.LichSuDangTai__avatar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.LichSuDangTai__user--icon {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  border-radius: 5px;
+}
+.LichSuDangTai__user--icon:hover {
+  background-color: #00568f;
+  color: white;
+  cursor: pointer;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.form--button {
+  text-align: center;
+}
+.required-span {
+  color: red;
+}
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}

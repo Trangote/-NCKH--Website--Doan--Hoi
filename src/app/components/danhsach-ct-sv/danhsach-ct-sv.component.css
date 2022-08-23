@@ -1,0 +1,107 @@
+.TimKiem__body--container {
+    margin-top: 0px;
+  }
+
+  .TimKiem__body--banner img {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .ChitietCT-banner {
+    width: 100%;
+  }
+  .search {
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+  }
+  
+  .search input {
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+  }
+  
+  .search input:focus {
+    box-shadow: none;
+    border: 2px solid blue;
+  }
+  .search .fa-search {
+    position: absolute;
+    top: 21px;
+    left: 16px;
+    margin-right: 2px;
+  }
+
+  .TimKiem__filter--item {
+    margin-right: 20px;
+    color: #00568f;
+    /* font-family: "Open Sans", sans-serif; */
+    border-radius: 5px;
+    border: 1px solid #00568f;
+  }
+  
+  .TimKiem__filter--item:last-child {
+    background-color: #00568f;
+    color: white;
+  }
+  .red-text{
+    color: red; 
+    font-weight: bold;
+  }
+
+  .btn-outline-secondary {
+    margin-right: 10px;
+    border-color: #00568f !important;
+    color: #00568f !important;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #00568f !important;
+    color: white !important;
+  }
+  
+  .card-title-css {
+    /* font-family: "Open Sans", sans-serif; */
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .mat-mr-css{
+    margin-right: 5px;
+  }
+
+  .div-mb-css{
+    margin-bottom: 5px;
+  }
+@media only screen and (max-width: 600px){
+  .TimKiem__filter--item {
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .TimKiem__filter--item {
+    margin: 10px;
+  }
+    .ChitietCT-row {
+        flex-direction: row;
+      }
+}
+
+@media only screen and (min-width: 768px){
+  mat-form-field {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 992px){
+  mat-form-field {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .TimKiem__filter--item {
+    margin: 10px;
+  }
+}

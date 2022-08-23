@@ -1,0 +1,140 @@
+<div class="TimKiem__body--container">
+  <div class="TimKiem__body--banner">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEjm90ubFax_fqWOxorK3U7b4ogDf-rQ4B7HMMKniT_ajRLF_lGWSlDuSIIXBreydyxFU9_DSMO151iebXt0_RhN3BFPlO9RYXfkgTQN3ImGHM9cjPHoW4rIIEvCzGv1yI3gcXqvRQ-VAXJNuu0SYxkV-bfNt2AiwFWfbndujTASuOTwhJGjjhr0Q5qF=s0"
+      alt=""
+    />
+  </div>
+  <div class="container text-center">
+    <div class="search div-mb-css">
+      <i class="fa fa-search"></i>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Tìm kiếm chương trình"
+        name="search"
+        autocomplete="off"
+        [(ngModel)]="searchText"
+      />
+    </div>
+    <mat-form-field appearance="fill" class="mat-mr-css">
+      <mat-label>Thể loại</mat-label>
+      <mat-select [(ngModel)]="selectedLoai">
+        <mat-option *ngFor="let a of selectLoai" [value]="a">
+          {{ a }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="mat-mr-css">
+      <mat-label>Quy mô</mat-label>
+      <mat-select [(ngModel)]="selectedQuymo">
+        <mat-option *ngFor="let b of selectQuymo" [value]="b">
+          {{ b }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="mat-mr-css">
+      <mat-label>Quyền lợi</mat-label>
+      <mat-select [(ngModel)]="selectedQuyenloi">
+        <mat-option *ngFor="let c of selectQuyenloi" [value]="c">
+          {{ c }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="mat-mr-css">
+      <mat-label>Ban tổ chức</mat-label>
+      <mat-select [(ngModel)]="selectedBtc">
+        <mat-option *ngFor="let d of selectBtc" [value]="d.btcname">
+          {{ d.btcname }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="mat-mr-css">
+      <mat-label>Sắp xếp</mat-label>
+      <mat-select
+        [(ngModel)]="selectedSapxep"
+        (ngModelChange)="sortBy(selectedSapxep)"
+      >
+        <mat-option *ngFor="let e of selectSapxep" [value]="e">
+          {{ e }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="text-center mb-3">
+      <button
+        class="TimKiem__filter--item"
+        value="Reset"
+        (click)="refreshList()"
+        type="button"
+      >
+        Chọn tất cả
+      </button>
+      <button
+        class="TimKiem__filter--item"
+        value="Xem kết quả"
+        (click)="
+          applyFilter(
+            selectedLoai,
+            selectedQuymo,
+            selectedQuyenloi,
+            selectedBtc
+          )
+        "
+        type="button"
+      >
+        Xem kết quả
+      </button>
+    </div>
+  </div>
+  <section id="gallery">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-md-6 col-lg-4 col-xl-3 mb-4"
+          *ngFor="let d of chuongtrinh2 | filter: searchText!; let i = index"
+          [class.active]="i == currentIndex"
+        >
+          <div class="card">
+            <img src="{{ d.imgavatar }}" alt="" class="card-img-top" />
+            <div class="card-body text-center">
+              <p class="card-title card-title-css text-uppercase">
+                {{
+                  d.eventname!.length > 19
+                    ? (d.eventname | slice: 0:20) + "..."
+                    : d.eventname
+                }}
+              </p>
+              <p>Hạn cuối đăng ký: {{ d.timeend | date: "dd/MM/yyyy" }}</p>
+              <p class="red-text">
+                <countdown
+                  [config]="{
+                    timezone: '-2400',
+                    leftTime: minus(d.timeend!),
+                    format:
+                      minus(d.timeend!) < 86400 ? '00:HH:mm:ss' : 'dd:HH:mm:ss'
+                  }"
+                >
+                </countdown>
+              </p>
+              <a
+                [title]="d.eventname"
+                [routerLink]="['/user1', d.key]"
+                class="btn btn-outline-secondary btn-sm"
+                >Đăng ký tham gia</a
+              >
+              <a
+                [title]="d.eventname"
+                [routerLink]="['/chuongtrinhSV', d.key]"
+                class="btn btn-danger btnDetail btn-sm"
+                >Chi tiết</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center" [ngClass]="{ 'd-block': iff, 'd-none': !iff }">
+    Không có kết quả tìm kiếm
+  </div>
+</div>

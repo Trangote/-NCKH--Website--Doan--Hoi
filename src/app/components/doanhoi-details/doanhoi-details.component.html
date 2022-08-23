@@ -1,0 +1,40 @@
+<div *ngIf="currentDoanhoi" class="edit-form">
+  <h4>Tutorial</h4>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="currentDoanhoi.username" name="title" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="currentDoanhoi.password"
+        name="description" />
+    </div>
+
+    <div class="form-group">
+      <label><strong>Status:</strong></label>
+      {{ currentDoanhoi.published ? "Doanhoi" : "Pending" }}
+    </div>
+  </form>
+
+  <button class="badge badge-primary mr-2" *ngIf="currentDoanhoi.published" (click)="updatePublished(false)">
+    UnPublish
+  </button>
+  <button *ngIf="!currentDoanhoi.published" class="badge badge-primary mr-2" (click)="updatePublished(true)">
+    Publish
+  </button>
+
+  <button class="badge badge-danger mr-2" (click)="deleteDoanhoi()">
+    Delete
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updateDoanhoi()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentDoanhoi">
+  <br />
+  <p>Cannot access this Doanhoi...</p>
+</div>

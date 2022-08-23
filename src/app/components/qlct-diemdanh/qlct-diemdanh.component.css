@@ -1,0 +1,54 @@
+.table-container {
+  overflow-x: auto;
+}
+
+.btn-connect {
+  background-color: #00528f;
+
+}
+.btn-outline-success {
+  margin-right: 10px;
+  border-color: #00568f !important;
+  color: #00568f !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #00568f !important;
+  color: white !important;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.LichSuDangTai__card {
+  border: 1px solid #a7a7a7;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+.btn-outline-success {
+  color: #00568f;
+  border-color: #00568f;
+}
+.thead-css{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 5px;
+  background-color: #00568f;
+  color: white;
+}

@@ -1,0 +1,169 @@
+.DangNhap__button {
+  background-color: #00568f !important;
+}
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}
+
+
+.DangNhap__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 50%;
+  margin-left: 25%;
+  border: 1px solid #a7a7a7;
+  margin-top: 10px;
+}
+
+.DangNhap__hinhanh {
+  flex: 50%;
+  max-width: 50%;
+  position: relative;
+  background-size: cover;
+  min-height: 100%;
+}
+
+.DangNhap__logo {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  top: 8px;
+  left: 8px;
+}
+
+.DangNhap__logo--1 {
+  flex: 33%;
+  max-width: 33%;
+  margin: 4px;
+}
+
+.DangNhap__form {
+  flex: 60%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.DangNhap__icon {
+  top: 0;
+  right: 0;
+  font-size: 25px;
+  text-align: right;
+}
+
+.DangNhap__content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 30px 30px 30px;
+}
+
+.DangNhap__title {
+  font-size: 20px;
+  color: #00568f;
+  font-weight: bold;
+  margin: 0px auto 16px auto;
+}
+
+.DangNhap__heading {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.DangNhap__type {
+  margin-top: 8px;
+  color: gray;
+  text-align: center;
+}
+
+.DangNhap__chuaTaiKhoan {
+  margin: 10px auto;
+}
+
+.DangNhap__button {
+  background-color: #00568f;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 16px;
+}
+
+.text-warning-css{
+  color: #dc3545 !important;
+  font-size: 12.8px;
+}
+
+.color-cursor{
+  color: #00568F; cursor: pointer;
+}
+.required-span {
+  color: red;
+}
+@media only screen and (max-width: 600px) {
+
+.DangNhap__container {
+  max-width: 60%;
+  margin-left: 20%;
+}
+
+.DangNhap__hinhanh {
+  display: none;
+}
+
+
+.DangNhap__form {
+  flex: 100%;
+  max-width: 100%;
+}
+
+.DangNhap__content {
+  padding: 8px;
+}
+}
+
+@media only screen and (min-width: 600px) {
+  .DangNhap__container {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .DangNhap__content {
+    padding: 8px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .DangNhap__container {
+    max-width: 70%;
+    margin-left: 15%;
+  }
+  .DangNhap__content {
+    padding: 8px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .DangNhap__container {
+    max-width: 55%;
+    margin-left: 22.5%;
+  }
+  .DangNhap__content {
+    padding: 16px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+}

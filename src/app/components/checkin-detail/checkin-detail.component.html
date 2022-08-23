@@ -1,0 +1,9 @@
+<div class="card p-3 text-center" *ngIf="svcheck">
+  <div class="">
+    <h2 class="text-primary">Họ và tên: {{svcheck.fullname}}</h2>
+    <h4 class="mb-2 text-muted">Trạng thái điểm danh: {{svcheck.checkinstatus ? "Đã điểm danh" : "Chưa điểm danh"}}
+    </h4>
+    <button [disabled]="svcheck.checkinstatus" (click)="updatePublished(true)" class="btn btn-primary">Điểm
+      danh</button>
+  </div>
+</div>

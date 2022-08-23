@@ -1,0 +1,464 @@
+<div *ngIf="chuongtrinhgetduoc3">
+  <div>
+    <img
+      id="banner"
+      class="CTChiTiet--banner"
+      src="{{ chuongtrinhgetduoc3.banner }}"
+    />
+  </div>
+  <div class="container">
+    <div class="col-8">
+      <div class="row mt-3">
+        <div class="col-md-9">
+          <img
+            class="CTChiTiet--img--profile mr-2"
+            src="{{ chuongtrinhgetduoc3.btcimages }}"
+          />
+          <span class="btcname">{{ chuongtrinhgetduoc3.btcname }}</span>
+        </div>
+        <div class="ml-auto p-2 col-md-3">
+          <a
+            [title]="'Link facebook của BTC ' + btc2.btcname"
+            href="{{ btc2.fanpagelink }}"
+            *ngIf="btc2"
+            target="_blank"
+            ><i class="fab fa-facebook fa-2x"></i
+          ></a>
+          <i
+            [ngClass]="{
+              'fa-solid': iff,
+              'fa-regular': !iff
+            }"
+            class="fa-heart fa-2x"
+            (click)="chuongtrinhquantam(chuongtrinhgetduoc3)"
+            [title]="'Quan tâm chương trình ' + chuongtrinhgetduoc3.eventname"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="text-center row">
+      <div class="col-lg-8">
+        <h2 class="text-uppercase">{{ chuongtrinhgetduoc3.eventname }}</h2>
+        <div class="d-flex justify-content-center text-center mb-5 mt-3">
+          <div class="CTChiTiet--box font-weight-bold" id="tinhnguyen">
+            {{ chuongtrinhgetduoc3.eventtype }}
+          </div>
+        </div>
+        <p class="mb-5" [innerHTML]="chuongtrinhgetduoc3.shortdescription"></p>
+        <p
+          class="CTChiTiet--col--fee CTChiTiet--text--blue font-weight-bold CTChiTiet--size24 mb-3"
+        >
+          Phí tham gia: {{ chuongtrinhgetduoc3.fee }}đ
+        </p>
+        <div class="d-flex justify-content-center">
+          <div
+            class="CTChiTiet--icon"
+            id="connect"
+            *ngIf="chuongtrinhgetduoc3.sconnect == 'Yes'"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEir0FpBXLxrHr2oM9AZSxkcQnc6CIoTwO0N_s2msBDyOFJzK_G-YpVTNdO6ZmfxUVMmv3IMtzK7EN3qkgrj8VUq22DEpBlHhvX9Uia5tX5nbiQTvUMEC3dF9tINGflfwgbhJB0Atc4Hn0hUyH6eMOJZ6vrW3w4jBRE9qMqMJ_qoODXo-LWttrq_PuIR"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc3.sconnect == "Yes" ? "Doanh nghiệp" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc3.screative == 'Yes'"
+            class="CTChiTiet--icon"
+            id="creative"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEgfBxcyB5gUp4mZMQpe12OYpyffTumtpMC3oGyuBXk55-jlY1EUFvzdNI-sRXZGT61ebcMt67vvoDLr0Hu5q_LFZEtRXgBXvn50IiF-ke0bA-Xrt1MDgHbDvtFv4WJc6OiE_6Jej8zxUEmfPIvgaOHOct-tdHUDBGNxWJVk8-EOy7R8uN-xRWYuptz3"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc3.screative == "Yes" ? "Sáng tạo" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc3.straining == 'Yes'"
+            class="CTChiTiet--icon"
+            id="training"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEhsZAoPzai38QICWa9fi-msGxN_bZQpv4zfPiIJfnWHqHq90oj8Q7fiZdoYyjYzZZCbiBa_GaWtTYLw7FqAfN940v-ESLQGiUbP_G5dEybhQ8q3_NINjAsTrNRwVtV-cDpyivMG2lYoENfmtdNgT_BDN4Ima11SrDbZ-j7SEb1TaRtBM0SeLNmjLVC7"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc3.straining == "Yes" ? "Training" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc3.sknow == 'Yes'"
+            class="CTChiTiet--icon"
+            id="knowledge"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEhpFZBR8TJ5Vhl6vfMWyHi5FO39F4jaUSa6Z55IKbjqwBDF8tmozSi-z4ai-MqDC3kArIj_njKcH67AEnLnrW6dXJJmyaXYdFdHeju2uYalT8kp7fAetjbU7A2WJi9ar_FqRFWYWiSfRXM_0od2UjoKnxwsRfVhNOFV06WZ5VFZyKhtahLCibSOih7A"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc3.sknow == "Yes" ? "Kiến thức" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc3.sskill == 'Yes'"
+            class="CTChiTiet--icon"
+            id="skill"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://blogger.googleusercontent.com/img/a/AVvXsEhY3LZaBRAX_Ipevc_apeXExhbP5VQALXkEYklC-nN6ca9CJ1wYlSedvSZYI8dDzMI05sG2hNlvHjEjtvxhX2QmiChztWOY9RxcYe8MsaDuaN_R6vBcRrb002Ney25rRAjLtRjNM5xGqYEME6guI5PUynf_-J6ZnXkgZwFfaM4AAgSK58z8XNkyLi_N"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc3.sskill == "Yes" ? "Kỹ năng" : "" }}
+            </p>
+          </div>
+        </div>
+        <div class="CTChiTiet--col--subcribe">
+          <span
+            class="CTChiTiet--size40 font-weight-bold CTChiTiet--text--blue"
+            >{{ chuongtrinhgetduoc3.soluongdk }}</span
+          >
+          <span class="font-weight-bold">lượt đăng ký</span>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-75 rounded bg-primary bg-gradient text-white shadow p-3 text-center center"
+            style="margin: auto"
+          >
+            <p class="mb-0 font-weight-bold text-uppercase">THỜI HẠN ĐĂNG KÝ</p>
+            <div id="clock-c" class="countdown py-4">
+              <countdown
+                class="display-4"
+                [config]="{
+                  timezone: '-2400',
+                  leftTime: minus(chuongtrinhgetduoc3.timeend!),
+                  format:
+                    minus(chuongtrinhgetduoc3.timeend!) < 86400
+                      ? '00:HH:mm:ss'
+                      : 'dd:HH:mm:ss'
+                }"
+              >
+              </countdown>
+              <p>
+                <span class="font-italic"> (Ngày : Giờ : Phút : Giây) </span>
+              </p>
+            </div>
+            <p>
+              <span class="font-weight-bold" id="deadline"
+                >Hạn cuối đăng ký: </span
+              >{{ chuongtrinhgetduoc3.timeend! | date: "dd/MM/yyyy" }}
+            </p>
+          </div>
+        </div>
+        <div>
+          <a
+            [title]="'Đăng ký ' + chuongtrinhgetduoc3.eventname"
+            [routerLink]="['/user1', chuongtrinhgetduoc3.key]"
+            ><button
+              id="subcribe"
+              class="CTChiTiet--bold bg-primary bg-gradient"
+            >
+              ĐĂNG KÝ
+            </button></a
+          >
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <app-ct-goiy></app-ct-goiy>
+      </div>
+    </div>
+  </div>
+  <div class="CTChiTiet--box__CTChiTiet--container--program bg-white">
+    <div
+      class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5 bg-white"
+    >
+      <mat-tab-group
+        class="CTChiTiet--header-tab"
+        mat-align-tabs="center"
+        animationDuration="0ms"
+        style="background-color: white"
+      >
+        <mat-tab
+          label="Giới thiệu"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc3.img1gioithieu }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            [innerHTML]="chuongtrinhgetduoc3.description"
+          ></p>
+        </mat-tab>
+        <mat-tab
+          label="Giải thưởng"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc3.img2benefit }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            [innerHTML]="chuongtrinhgetduoc3.benefit"
+          ></p>
+        </mat-tab>
+        <mat-tab
+          label="Lộ trình"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc3.img3timeline }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            [innerHTML]="chuongtrinhgetduoc3.timeline"
+          ></p>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+<!-- Chương trình đã đăng ký -->
+<div class="CTChiTiet--container" *ngIf="chuongtrinhgetduoc2">
+  <div>
+    <img
+      id="banner"
+      class="CTChiTiet--banner"
+      src="{{ chuongtrinhgetduoc2.banner }}"
+    />
+  </div>
+  <div class="container">
+    <div class="col-8">
+      <div class="row mt-3">
+        <div class="col-md-9">
+          <img
+            class="CTChiTiet--img--profile mr-2"
+            src="{{ chuongtrinhgetduoc2.btcimages }}"
+          />
+          <span class="btcname">{{ chuongtrinhgetduoc2.btcname }}</span>
+        </div>
+        <div class="ml-auto p-2 col-md-3">
+          <a
+            [title]="'Link facebook của BTC ' + btc4.btcname"
+            href="{{ btc4.fanpagelink }}"
+            *ngIf="btc4"
+            target="_blank"
+            ><i class="fab fa-facebook fa-2x"></i
+          ></a>
+          <i
+            [ngClass]="{ 'fa-solid': iff, 'fa-regular': !iff }"
+            class="fa-heart fa-2x"
+            (click)="chuongtrinhquantam(chuongtrinhgetduoc2)"
+            [title]="'Quan tâm chương trình ' + chuongtrinhgetduoc2.eventname"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="text-center row">
+      <div class="col-lg-8">
+        <h2 class="text-uppercase">{{ chuongtrinhgetduoc2.eventname }}</h2>
+        <div class="d-flex justify-content-center mb-2 text-center mb-5 mt-3">
+          <div class="CTChiTiet--box font-weight-bold" id="tinhnguyen">
+            {{ chuongtrinhgetduoc2.eventtype }}
+          </div>
+        </div>
+
+        <p class="mb-5" [innerHTML]="chuongtrinhgetduoc2.shortdescription"></p>
+        <p
+          class="CTChiTiet--col--fee CTChiTiet--text--blue bold CTChiTiet--size24 font-weight-bold mb-3"
+        >
+          Phí tham gia: {{ chuongtrinhgetduoc2.fee }}đ
+        </p>
+        <div class="d-flex justify-content-center">
+          <div
+            class="CTChiTiet--icon"
+            id="connect"
+            *ngIf="chuongtrinhgetduoc2.sconnect == 'Yes'"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://lh3.googleusercontent.com/pw/AM-JKLXyT9AVDr0hm3M4vS88lJfWN6RVLJRIyhHmrQMfPccWfm7PPBLlhdxPrPN4IeK0MK-h1EoSXxQc2MoHu2g2jwyGbDeuowNE7_TM8gT7gH2U8n50qTd3dnbLJg9S7rMx1Rj_S0sfA9QbM3a1Ap4lGExC=s81-no?authuser=1"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc2.sconnect == "Yes" ? "Doanh nghiệp" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc2.screative == 'Yes'"
+            class="CTChiTiet--icon"
+            id="creative"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://lh3.googleusercontent.com/pw/AM-JKLU435VLHGTdPeTiv1FwtffvoCLyYCQ08h1Q6KlrRdAon_GDAnPeY81RVOTcR3_RV3ncyBOG-6hdW0xRoDQ7BqUSme9no9O2I_XHPFAyvK5fTe7HsqyWp04D4VEV3Y-7XRLBTuj2AO4H7K0B5rY3dUAX=s79-no?authuser=1"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc2.screative == "Yes" ? "Sáng tạo" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc2.straining == 'Yes'"
+            class="CTChiTiet--icon"
+            id="training"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://lh3.googleusercontent.com/pw/AM-JKLU2VJK0lhxyEjAXscXKTtcbR6K4-eLwANQgRrrqZWPnqqpEC4Ry7GxnxRHFDASjHWuNjsOkrTXX0-b6T7JsgU14jPWMiZULlP88o05bUWiyMBWwZCS6hf-5nRdueJZybD8f4C2oFcNWbzfzncdnoLc5=w79-h81-no?authuser=1"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc2.straining == "Yes" ? "Training" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc2.sknow == 'Yes'"
+            class="CTChiTiet--icon"
+            id="knowledge"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://lh3.googleusercontent.com/pw/AM-JKLVSK7JU88-J2WzoacSJzxOyr5-hdWtxUJ-D0OW-FNOBq9hMe-4If2ZhGz6iiBZajUFWflifi-3xROJ0CTL0VzvyhHpQ4bhFYIkXGDCldyaez4FQ4q_Ix7pUUAolwfuiTffZrCbzc4B7CyDaWv3Cn-1F=s81-no?authuser=1"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc2.sknow == "Yes" ? "Kiến thức" : "" }}
+            </p>
+          </div>
+          <div
+            *ngIf="chuongtrinhgetduoc2.sskill == 'Yes'"
+            class="CTChiTiet--icon"
+            id="skill"
+          >
+            <img
+              class="CTChiTiet--icon--highlight"
+              src="https://lh3.googleusercontent.com/pw/AM-JKLUFi2t52hxyihl8bjl7RSQ8Mrjl1NLhEsEMSOCX8BH1LcHfZ331bG3Ou21SvEW_SYha4yG7gSbGFecZYmgGsCwlquND68lgtA4nuvLkXqA4ESu4klPLK3SGyQfM0W2dppABR02JN8DXiTwg0AB0OLW1=s81-no?authuser=1"
+            />
+            <p class="CTChiTiet--label--highlight">
+              {{ chuongtrinhgetduoc2.sskill == "Yes" ? "Kỹ năng" : "" }}
+            </p>
+          </div>
+        </div>
+        <div class="mb-4">
+          <span class="CTChiTiet--size30 font-weight-bold CTChiTiet--text--blue"
+            >Đã đăng ký</span
+          >
+        </div>
+        <div class="row d-flex justify-content-center">
+          <button type="button" class="btntab col btn btn-primary">
+            Thông tin chương trình
+          </button>
+          <button
+            type="button"
+            class="btntab col btn btn-outline-primary"
+            mat-button
+            (click)="openDialog1()"
+          >
+            Xem mã QR
+          </button>
+          <button
+            type="button"
+            class="btntab col btn btn-outline-primary"
+            mat-button
+            (click)="openDialog1()"
+          >
+            Tải chứng nhận
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <app-ct-goiy></app-ct-goiy>
+      </div>
+    </div>
+  </div>
+  <div class="CTChiTiet--box__container--program mt-4 bg-white">
+    <div
+      class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5 bg-white"
+    >
+      <mat-tab-group
+        class="CTChiTiet--header-tab"
+        mat-align-tabs="center"
+        animationDuration="0ms"
+        style="background-color: white"
+      >
+        <mat-tab
+          label="Giới thiệu"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc2.img1gioithieu }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            [innerHTML]="chuongtrinhgetduoc2.description"
+          ></p>
+        </mat-tab>
+        <mat-tab
+          label="Giải thưởng"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc2.img2benefit }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            class="content-tab"
+            [innerHTML]="chuongtrinhgetduoc2.benefit"
+          ></p>
+        </mat-tab>
+        <mat-tab
+          label="Lộ trình"
+          class="flex-sm-fill text-sm-center nav-link active"
+        >
+          <p>
+            <img
+              class="CTChiTiet--content--banner"
+              src="{{ chuongtrinhgetduoc2.img3timeline }}"
+            />
+          </p>
+          <p
+            style="text-align: justify; color: black"
+            class="content-tab"
+            [innerHTML]="chuongtrinhgetduoc2.timeline"
+          ></p>
+        </mat-tab>
+        <mat-tab
+          label="Thông báo"
+          class="flex-sm-fill text-sm-center nav-link disabled"
+        >
+          <div class="card notification-card notification-invitation">
+            <div class="card-body">
+              <table class="text-left tb-table">
+                <tr *ngFor="let d2 of tb2; let i = index">
+                  <td style="width: 70%" class="content-tab">
+                    <div class="text-primary">Thông báo {{ i + 1 }}</div>
+                    <p class="font-style-italic text-secondary">
+                      {{ d2.ngayTaoThongBao | date: "HH:mm dd/MM/yyyy" }}
+                    </p>
+                    <p [innerHTML]="d2.thongbao"></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

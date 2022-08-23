@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <form
+        action="get"
+        class="Nhom__form shadow mb-4 mt-4 rounded"
+        *ngIf="!submitted"
+      >
+        <div class="form-group">
+          <h2 style="color: #00568f" class="text-center">ĐĂNG KÝ THAM GIA</h2>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="signupName">Họ và tên</label>
+          <input
+            id="signupName"
+            type="text"
+            maxlength="50"
+            class="form-control"
+            name="fullname"
+            [(ngModel)]="fullname"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="signupEmail">MSSV</label>
+          <input
+            id="signupEmail"
+            type="email"
+            maxlength="50"
+            class="form-control"
+            name="studentcode"
+            [(ngModel)]="studentcode"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="signupEmailagain"
+            >Địa chỉ email</label
+          >
+          <input
+            id="signupEmailagain"
+            type="email"
+            maxlength="50"
+            class="form-control"
+            name="emailaddress"
+            [(ngModel)]="email"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="faculty">Khoa</label>
+          <input
+            class="form-control"
+            id="faculty"
+            name="faculty"
+            [(ngModel)]="faculty"
+            disabled
+          />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="phonenumber">Số điện thoại</label>
+          <input
+            id="signupPasswordagain"
+            class="form-control"
+            name="phonenumber"
+            placeholder="Số điện thoại"
+            type="tel"
+            [(ngModel)]="currentDanhsach.phonenumber"
+          />
+        </div>
+        <div class="form-group">
+          <button
+            (click)="danhsachChuongtrinhThamgia()"
+            class="Nhom__form--button"
+            value="Đăng ký"
+          >
+            Đăng ký tham gia
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="mb-4">
+  <div class="form-row ml-1">
+    <label for="idThongbao">Thông báo</label>
+    <textarea
+      class="form-control"
+      name="thongbao"
+      id="idThongbao"
+      cols="70"
+      rows="3"
+      [(ngModel)]="noidungtb"
+    ></textarea>
+  </div>
+  <div class="form--button mt-3">
+    <button
+      class="btn btn-primary btn-add-tb"
+      (click)="thongbaoChuongtrinh(noidungtb)"
+    >
+      Thêm thông báo
+    </button>
+  </div>
+</div>

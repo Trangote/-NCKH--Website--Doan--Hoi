@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-3 col-md-4 p-2">
+      <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+        <div class="LichSuDangTai__avatar">
+          <div>
+            <img class="btcimages-css" src="{{btcimages}}" alt="">
+          </div>
+          <div>
+            <div><b>{{btcname}}</b></div>
+            <div class="LichSuDangTai__user--icon" mat-button (click)="openDialog()">
+              <div><i class="fa-solid fa-pen-to-square"></i></div>
+              <div>&nbsp; Chỉnh sửa hồ sơ</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div (click)="themchuongtrinh()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-circle-plus"></i></div>
+            <div>&nbsp; Thêm chương trình</div>
+          </div>
+        </div>
+        <div (click)="lichsudangtai()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>&nbsp; Lịch sử đăng tải</div>
+          </div>
+        </div>
+        <div mat-button (click)="openDialog()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-chart-pie"></i></div>
+            <div>&nbsp; Thống kê</div>
+          </div>
+        </div>
+        <div (click)="dangxuat()">
+          <div class="LichSuDangTai__user--icon">
+            <div><i class="fa-solid fa-right-from-bracket"></i></div>
+            <div>&nbsp; Đăng xuất</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 p-2">
+      <div class="p-3 shadow-sm mb-5 bg-white rounded min-vh-100">
+        <div class="LichSuDangTai__title rounded">
+          <div>QUẢN LÝ CHƯƠNG TRÌNH</div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-lg-8 col-md-6">
+            <div class="search"> <i class="fa fa-search"></i>
+              <input type="text" class="form-control" placeholder="Tìm kiếm chương trình" name="search"
+                autocomplete="off" [(ngModel)]="searchText">
+            </div>
+          </div>
+          <div class="
+              col-lg-4 col-md-6">
+            <mat-form-field appearance="fill" class="mat-mr-css">
+              <mat-label>Sắp xếp</mat-label>
+              <mat-select [(ngModel)]="selectedSapxep" (ngModelChange)="sortBy(selectedSapxep)">
+                <mat-option *ngFor="let e of selectSapxep" [value]="e">
+                  {{e}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="overflow-css">
+          <table class="table table-striped table-borderless">
+            <thead class="bg-white thead-css">
+              <tr>
+                <th scope="col" class="text-center">STT</th>
+                <th scope="col">Thời gian đăng tải</th>
+                <th class="w-25" scope="col">Tên chương trình</th>
+                <th scope="col">Thể loại</th>
+                <th scope="col">Chứng nhận</th>
+                <th scope="col">Tùy chọn</th>
+              </tr>
+            </thead>
+            <tr *ngFor="let d of chuongtrinh | filter:searchText!; let i = index; let c of ctCert; let t of thongbao"
+              [class.active]="i == currentIndex">
+              <td scope="row" class="text-center">{{i+1}}</td>
+              <td><span ng-non-bindable>{{d.ngayDangTai | date:'HH:mm dd/MM/yyyy'}}</span>
+              </td>
+              <td>{{ d.eventname }}</td>
+              <td>{{ d.eventtype }}</td>
+              <td mat-button (click)="openDialog()"><a class="cert-css">Chưa cấp</a></td>
+              <td>
+                <a [title]="'Điểm danh ' + d.eventname" [routerLink]="['/diemdanh', d.key]" class="mr-1"><i class="fas fa-camera camera-css"
+                    ></i></a>
+                <a [title]="'Chỉnh sửa chương trình ' + d.eventname" [routerLink]="['/detail', d.key]" class="mr-1"><i
+                    class="fas fa-pen pen-css"></i></a>
+                <a [title]="'Thêm thông báo ' + d.eventname" [routerLink]="['/thongbao', d.key]" class="mr-1"><i class="fas fa-bell bell-css"
+                   ></i></a>
+                <a [title]="'Thống kê ' + d.eventname" [routerLink]="['/thongkeone', d.key]"><i
+                    class="fa-solid fa-chart-column chart-css" ></i></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

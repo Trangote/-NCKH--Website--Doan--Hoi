@@ -1,0 +1,106 @@
+table>thead {
+  vertical-align: center !important;
+  color: black;
+}
+.search {
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+
+.search input {
+  height: 60px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
+}
+
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid blue;
+}
+.search .fa-search {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  margin-right: 2px;
+}
+.LichSuDangTai__avatar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.LichSuDangTai__user--icon {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  border-radius: 5px;
+}
+.LichSuDangTai__user--icon:hover {
+  background-color: #00568f;
+  color: white;
+  cursor: pointer;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.btcimages-css{
+  width: 80px; height: 80px; border-radius: 50%;
+}
+.camera-css{
+  color: #A7A7A7; cursor: pointer;
+}
+.pen-css{
+  color: #3BB8C3; cursor: pointer;
+}
+.bell-css{
+  color: #FDC100; cursor: pointer;
+}
+.chart-css{
+  color: rgb(219, 71, 103); cursor: pointer;
+}
+.cert-css{
+  cursor: pointer;
+}
+.overflow-css{
+  overflow-x:auto;
+}
+.mat-mr-css{
+  margin-right: 5px;
+}
+.thead-css{
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 5px;
+  background-color: #00568f;
+  color: white;
+}
+.fa-circle-info,
+.fa-circle-check {
+  color: #1DB93F !important;
+}
+.fa-circle-xmark {
+  color: #EA0707 !important;
+}
+.dialog {
+  width: 380px;
+  height: 140px;
+}
+@media only screen and (min-width: 768px) {
+  mat-form-field {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  mat-form-field {
+    width: auto;
+  }
+
+}

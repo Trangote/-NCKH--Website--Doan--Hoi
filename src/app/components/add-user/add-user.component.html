@@ -1,0 +1,282 @@
+<div class="container">
+  <div class="rounded-3 con mb-4 mt-4 shadow p-3 bg-white w-75">
+    <div>
+      <div class="rounded-3">
+        <img
+          style="width: 100%"
+          src="https://blogger.googleusercontent.com/img/a/AVvXsEizDsPIderqCv2uMYWNT2ZYUDQoMChrw4RRAv9fEy0bcSsPh5UV3bdYqIbGQu96qbzlUW9zzFx9GVPASzt7gxlW3qKm-X4Xa0cUjLk6OsUQQrrKA3_tkeO4Q-YBgRzDvzENpc38IC_0RGr3uBsuEG8nT6brICdaE4hyVoVczicw_xnLO0uGWdVZGVLi"
+          class="w-100"
+          style="
+            border-top-left-radius: 0.3rem;
+            border-top-right-radius: 0.3rem;
+          "
+          alt=""
+        />
+
+        <div class="card-body p-4 p-md-5">
+          <h2 class="mb-4 text-center" style="color: #00568f">
+            ĐĂNG KÝ TÀI KHOẢN
+          </h2>
+          <form class="px-md-2" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Họ và tên <span class="required-span">*</span></label>
+              <div class="DangKy__input--text form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Họ và tên"
+                  required
+                  id="fullname"
+                  formControlName="fullname"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['fullname'].errors
+                  }"
+                  name="fullname"
+                />
+                <div
+                  *ngIf="submitted && f['fullname'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['fullname'].errors['required']">
+                    Vui lòng nhập họ và tên
+                  </div>
+                  <div *ngIf="f['fullname'].errors['minlength']">
+                    Vui lòng nhập ít nhất 6 ký tự
+                  </div>
+                  <div *ngIf="f['fullname'].errors['pattern']">
+                    Họ tên không được chứa ký tự đặc biệt và số
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label
+                >Mã số sinh viên <span class="required-span">*</span></label
+              >
+              <div class="DangKy__input--text form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="studentcode"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['studentcode'].errors
+                  }"
+                  placeholder="Mã số sinh viên"
+                  required
+                  id="studentcode"
+                  name="studentcode"
+                />
+                <div
+                  *ngIf="submitted && f['studentcode'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['studentcode'].errors['required']">
+                    Vui lòng nhập MSSV
+                  </div>
+                  <div *ngIf="f['studentcode'].errors['minlength']"></div>
+                  Vui lòng nhập đúng 10 ký tự
+                  <div *ngIf="f['studentcode'].errors['maxlength']">
+                    Vui lòng nhập đúng 10 ký tự
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col">
+                  <label class="form-label"
+                    >Khóa <span class="required-span">*</span></label
+                  >
+                  <div
+                    class="Nhom__form--select DangKy__input--text form-group"
+                  >
+                    <select
+                      class="form-control"
+                      id="khoa"
+                      name="khoa"
+                      formControlName="khoa"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['khoa'].errors
+                      }"
+                      required
+                    >
+                      <option value="K18">K18</option>
+                      <option value="K19">K19</option>
+                      <option value="K20">K20</option>
+                      <option value="K21">K21</option>
+                    </select>
+                    <div
+                      *ngIf="submitted && f['khoa'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['khoa'].errors['required']">
+                        Vui lòng chọn khoá
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <label class="form-label"
+                    >Khoa <span class="required-span">*</span></label
+                  >
+                  <div
+                    class="Nhom__form--select DangKy__input--text form-group"
+                  >
+                    <select
+                      class="form-control"
+                      id="faculty"
+                      name="faculty"
+                      formControlName="faculty"
+                      [ngClass]="{
+                        'is-invalid': submitted && f['faculty'].errors
+                      }"
+                    >
+                      <option value="Khoa Hệ thống thông tin">
+                        Khoa Hệ thống thông tin
+                      </option>
+                      <option value="Khoa Kinh tế">Khoa Kinh tế</option>
+                      <option value="Khoa Kinh tế đối ngoại">
+                        Khoa Kinh tế đối ngoại
+                      </option>
+                      <option value="Khoa Kế toán - Kiểm toán">
+                        Khoa Kế toán - Kiểm toán
+                      </option>
+                      <option value="Khoa Luật">Khoa Luật</option>
+                      <option value="Khoa Luật Kinh tế">
+                        Khoa Luật Kinh tế
+                      </option>
+                      <option value="Khoa Toán Kinh tế">
+                        Khoa Toán Kinh tế
+                      </option>
+                      <option value="Khoa Tài chính - Ngân hàng">
+                        Khoa Tài chính - Ngân hàng
+                      </option>
+                      <option value="Khoa Quản trị kinh doanh">
+                        Khoa Quản trị kinh doanh
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="submitted && f['faculty'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['faculty'].errors['required']">
+                        Vui lòng chọn khoa
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="DangKy__heading"
+                >Email trường <span class="required-span">*</span></label
+              >
+              <div class="DangKy__input--text form-group">
+                <input
+                  type="text"
+                  placeholder="Nhập email trường"
+                  required
+                  id="email"
+                  formControlName="email"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                  class="form-control"
+                  name="email"
+                />
+                <div
+                  *ngIf="submitted && f['email'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['email'].errors['required']">
+                    Vui lòng nhập địa chỉ email trường cung cấp
+                  </div>
+                  <div *ngIf="f['email'].errors['email']">
+                    Vui lòng nhập địa chỉ email trường cung cấp
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="DangKy__heading"
+                >Mật khẩu <span class="required-span">*</span></label
+              >
+              <div class="DangKy__input--text form-group">
+                <show-hide-password size="lg" [btnOutline]="true">
+                  <input
+                    type="password"
+                    formControlName="password"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['password'].errors
+                    }"
+                    placeholder="******"
+                    required
+                  />
+                </show-hide-password>
+                <div *ngIf="submitted && f['password'].errors">
+                  <div
+                    *ngIf="f['password'].errors['required']"
+                    style="color: #dc3545; font-size: 12.8px"
+                  >
+                    Vui lòng nhập mật khẩu
+                  </div>
+                  <div
+                    *ngIf="f['password'].errors['minlength']"
+                    style="color: #dc3545; font-size: 12.8px"
+                  >
+                    Mật khẩu phải ít nhất 6 ký tự
+                  </div>
+                  <div
+                    *ngIf="f['password'].errors['maxlength']"
+                    style="color: #dc3545; font-size: 12.8px"
+                  >
+                    Mật khẩu không được vượt quá 40 ký tự
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="DangKy__heading"
+                >Nhập lại mật khẩu <span class="required-span">*</span></label
+              >
+              <div class="DangKy__input--text form-group">
+                <show-hide-password size="lg" [btnOutline]="true">
+                  <input
+                    type="password"
+                    formControlName="confirmPassword"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['confirmPassword'].errors
+                    }"
+                    placeholder="******"
+                    required
+                    id="password"
+                    name="password"
+                  />
+                </show-hide-password>
+                <div *ngIf="submitted && f['confirmPassword'].errors">
+                  <div
+                    *ngIf="f['confirmPassword'].errors['required']"
+                    style="color: #dc3545; font-size: 12.8px"
+                  >
+                    Vui lòng nhập lại mật khẩu
+                  </div>
+                  <div
+                    *ngIf="f['confirmPassword'].errors['matching']"
+                    style="color: #dc3545; font-size: 12.8px"
+                  >
+                    Mật khẩu không khớp
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="DangKy__button" value="Đăng ký">
+                Đăng ký
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

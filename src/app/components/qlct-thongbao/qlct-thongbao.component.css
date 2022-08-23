@@ -1,0 +1,25 @@
+.tb-table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.LichSuDangTai__container--2 {
+  display: flex;
+  flex-direction: column;
+  flex: 75%;
+}
+.LichSuDangTai__title {
+  background-color: #00568f;
+  color: white;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.LichSuDangTai__card {
+  border: 1px solid #a7a7a7;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}

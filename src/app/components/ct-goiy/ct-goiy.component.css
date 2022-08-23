@@ -1,0 +1,74 @@
+.goi-y {
+  text-decoration: none;
+
+}
+.CTChiTiet--decoration {
+  background-color: #00568f;
+  width: 200px;
+  height: 5px;
+  position: absolute;
+  bottom: -2px;
+}
+
+.CTChiTiet--text--title {
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  margin-top: 24px;
+  position: relative;
+  font-size: 22px;
+}
+
+.red{
+  color: red !important;
+
+}
+.card {
+  color: #000;
+}
+
+.Ctgoiy-card-img-top {
+  height: 328px !important;
+}
+
+.Ctgoiy-card-img-top {
+  height: 328px !important;
+}
+@media only screen and (min-width: 600px) {
+  .Ctgoiy-card-img-top {
+    height: 478px !important;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  .Ctgoiy-card-img-top {
+    height: 140.5px !important;
+  }
+  .ctgoiy--font-size,
+  .ctgoiy-card-title,
+  .ctgoiy-btn-sm {
+    font-size: 12px !important;
+  }
+
+  .ctgoiy-card-p {
+    margin-bottom: 5px !important;
+  }
+
+}
+@media only screen and (min-width: 1024px) {
+.CTChiTiet--decoration {
+  width: 240px;
+}
+}
+@media only screen and (min-width: 1024px) {
+  .Ctgoiy-card-img-top {
+    height: 113px !important;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .Ctgoiy-card-img-top {
+    height: 143px !important;
+  }
+}
